@@ -1,0 +1,550 @@
+# Copyright (C) 2018 Image Regenerate & Select Crop
+# This file is distributed under the same license as the Image Regenerate & Select Crop package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Image Regenerate & Select Crop 4.3\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/image-regenerate-select-crop\n"
+"POT-Creation-Date: 2018-09-07 13:05:52+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2018-09-08 10:17+0300\n"
+"Language-Team: \n"
+"X-Generator: Poedit 2.1.1\n"
+"Last-Translator: \n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n==0 || (n!=1 && n%100>=1 && n%100<=19) ? 1 : 2);\n"
+"Language: ro_RO\n"
+
+#: image-regenerate-select-crop.php:145
+msgid "Left/Top"
+msgstr "Stânga/Sus"
+
+#: image-regenerate-select-crop.php:146
+msgid "Center/Top"
+msgstr "Centru/Sus"
+
+#: image-regenerate-select-crop.php:147
+msgid "Right/Top"
+msgstr "Dreapta/Sus"
+
+#: image-regenerate-select-crop.php:148
+msgid "Left/Center"
+msgstr "Stânga/Centru"
+
+#: image-regenerate-select-crop.php:149
+msgid "Center/Center"
+msgstr "Centru/Centru"
+
+#: image-regenerate-select-crop.php:150
+msgid "Right/Center"
+msgstr "Dreapta/Centru"
+
+#: image-regenerate-select-crop.php:151
+msgid "Left/Bottom"
+msgstr "Stânga/Jos"
+
+#: image-regenerate-select-crop.php:152
+msgid "Center/Bottom"
+msgstr "Centru/Jos"
+
+#: image-regenerate-select-crop.php:153
+msgid "Right/Bottom"
+msgstr "Dreapta/Jos"
+
+#: image-regenerate-select-crop.php:205
+msgid "Cleanup all?"
+msgstr "Curăță tot?"
+
+#: image-regenerate-select-crop.php:206
+msgid "Regenerate all?"
+msgstr "Regenerează tot?"
+
+#: image-regenerate-select-crop.php:207
+msgid "This operation might take a while, depending on how many images you have."
+msgstr "Această operațiune poate să dureze, în funcție de câte imagini aveți."
+
+#: image-regenerate-select-crop.php:208
+msgid "The operation is irreversible!"
+msgstr "Această operațiune este ireversibilă!"
+
+#: image-regenerate-select-crop.php:209 image-regenerate-select-crop.php:1716
+msgid "Resolution"
+msgstr "Rezoluție"
+
+#: image-regenerate-select-crop.php:220 image-regenerate-select-crop.php:221
+#: image-regenerate-select-crop.php:932
+msgid "Image Regenerate & Select Crop Settings"
+msgstr "Setări pentru regenerare & tăiere selectivă imagine"
+
+#: image-regenerate-select-crop.php:709 image-regenerate-select-crop.php:905
+msgid "Action not allowed."
+msgstr "Acțiunea nu este permisă."
+
+#: image-regenerate-select-crop.php:709
+msgid "Security Breach"
+msgstr "Breșă de securitate"
+
+#: image-regenerate-select-crop.php:763
+msgid "The plugin settings have been updated successfully."
+msgstr "Setările modulului au fost salvate cu succes."
+
+#: image-regenerate-select-crop.php:934
+msgid "Please make sure you visit and update your settings here whenever you activate a new theme or plugins, so that the new image size registered, adjusted or removed to be reflected also here, and in this way to assure the optimal behavior for the features of this plugin."
+msgstr "Vă rugăm să vă asigurați că revizitați și actualizați setările de aici ori de câte ori activați o nouă temă sau noi module, astfel încât noile mărimi de imagini înregistrate, modificate sau eliminate să fie reflectate și aici, și în acest fel să asigurați comportamentul optim al funcționalităților acestui modul."
+
+#: image-regenerate-select-crop.php:938
+msgid "Image Regenerate & Select Crop Settings are not configured yet."
+msgstr "Setări pentru regenerare & tăiere selectivă imagine nu sunt configurate încă."
+
+#: image-regenerate-select-crop.php:951
+msgid "Option to Enable Placeholders"
+msgstr "Opțiune de activare substituenți"
+
+#: image-regenerate-select-crop.php:952
+msgid "This option allows you to display placeholders for the front-side images called programmatically (the images that are not embedded in the content with their src, but exposed using WordPress native functions). If there is no placeholder set, then the WordPress default behavior would be to display the full-size image instead of a missing image size, hence your pages might load slower, and when using grids, the items would not look even."
+msgstr "Această opțiune vă permite să afișați substituenți ale imaginilor din partea frontală care sunt apelate programatic (imagini care nu sunt încorporate în conținut cu adresa lor, ci cele expuse folosind funcții native WordPress). Dacă nu a fost setat nici un substituent, atunci comportamentul implicit WordPress este acela de a afișa imaginea la mărime completă în loc de o dimensiune de imagine lipsă, prin urmare, paginile s-ar putea încărca mai lent, și atunci când se utilizează grile, elementele nu ar arăta egale."
+
+#: image-regenerate-select-crop.php:961
+msgid "Images Placeholders Developer Mode"
+msgstr "Mod dezvoltator substituenți imagini"
+
+#: image-regenerate-select-crop.php:964
+msgid "If you activate the \"force global\" option, all the images on the front-side that are related to posts will be replaced with the placeholders that mention the image size required. This is useful for debugging, to quickly identify the image sizes used for each layout and perhaps to help you regenerate the mission ones or decide what to keep or what to remove."
+msgstr "Dacă activați opțiunea \"forțează global\", toate imaginile de pe partea frontală care sunt legate de posturi vor fi înlocuite cu substituenți care menționează dimensiunea imaginii necesare. Acest lucru este util pentru depanare, pentru a identifica rapid dimensiunile imaginii utilizate pentru fiecare aspect și, probabil, pentru a vă ajuta să le regenerați pe cele lipsă sau pentru a decide ce să păstrați sau ce să eliminați."
+
+#: image-regenerate-select-crop.php:964
+msgid "If you activate the \"only missing images\" option, all the programmatically called images on the front-side that are related to posts and do not have the requested image size generated will be replaced with the placeholders that mention the image size required. This is useful for showing smaller images instead of the full-size images (as WordPress does by default), hence for speeding up the pages loading."
+msgstr "Dacă activați opțiunea \"numai imagini lipsă\", toate imaginile apelate programatic pe partea frontală, care sunt legate de articole și care nu au imagine generată la dimensiunea dorită vor fi înlocuite cu substituenți care menționează dimensiunea imaginii necesare. Acest lucru este util pentru afișarea imaginilor mai mici în loc de imagini complete (ce facă WordPress în mod implicit), prin urmare, pentru accelerarea încărcării paginilor."
+
+#: image-regenerate-select-crop.php:969
+msgid "no placeholder"
+msgstr "fără substituent"
+
+#: image-regenerate-select-crop.php:972
+msgid "force global"
+msgstr "forțează global"
+
+#: image-regenerate-select-crop.php:975
+msgid "only missing images"
+msgstr "numai imagini lipsă"
+
+#: image-regenerate-select-crop.php:977 image-regenerate-select-crop.php:1012
+#: image-regenerate-select-crop.php:1157 image-regenerate-select-crop.php:1328
+msgid "Save Settings"
+msgstr "Salvează setările"
+
+#: image-regenerate-select-crop.php:981
+msgid "Option to Exclude Image Sizes"
+msgstr "Opțiunea de a exclude dimensiunile imaginii"
+
+#: image-regenerate-select-crop.php:982
+msgid "This plugin provides the option to select image sizes that will be excluded from the generation of the new images. By default, all image sizes defined in the system will be allowed (these are programmatically registered by the themes and plugins you activate in your site, without you even knowing about these). You can set up a global configuration, or more specific configuration for all images attached to a particular post type. If no particular settings are made for a post type, then the default general settings will be used."
+msgstr "Acest modul oferă opțiunea de a selecta dimensiunile imaginilor care vor fi excluse din generarea de noi imagini. În mod implicit, toate dimensiunile imaginii definite în sistem vor fi permise (acestea sunt înregistrate prin programare în temele și modulele pe care le activați în situl dvs., fără ca măcar să știți despre acestea). Aveți posibilitatea să setați o configurație globală sau o configurație mai specifică pentru fiecare din imaginile atașate unui anumit tip de articol. Dacă nu sunt făcute anumite setări pentru un tip de articol, atunci vor fi utilizate setările generale implicite."
+
+#: image-regenerate-select-crop.php:982
+msgid "The options for which you made some settings are marked with * in the dropdown below."
+msgstr "Opțiunile pentru care ați făcut unele setări sunt marcate cu * în meniul vertical de mai jos."
+
+#: image-regenerate-select-crop.php:986
+msgid "Apply the settings below for the selected option"
+msgstr "Aplicați setările de mai jos pentru opțiunea selectată"
+
+#: image-regenerate-select-crop.php:993
+msgid "General settings (used as default for all images)"
+msgstr "Setări generale (utilizate ca implicite pentru toate imaginile)"
+
+#: image-regenerate-select-crop.php:1002
+msgid "Settings for images attached to a "
+msgstr "Setări pentru imaginile atașate la un "
+
+#: image-regenerate-select-crop.php:1019 image-regenerate-select-crop.php:1029
+#: image-regenerate-select-crop.php:1037 image-regenerate-select-crop.php:1045
+#: image-regenerate-select-crop.php:1061 image-regenerate-select-crop.php:1069
+msgid "Details"
+msgstr "Detalii"
+
+#: image-regenerate-select-crop.php:1020
+msgid "Global Ignore"
+msgstr "Ignoră global"
+
+#: image-regenerate-select-crop.php:1023
+msgid "This option allows you to exclude globally from the application some of the image sizes that are registered through various plugins and themes options, that you perhaps do not need at all in your application (these are just stored in your folders and database but not actually used/visible on the front-end)."
+msgstr "Această opțiune vă permite să excludeți în mod global din aplicație unele dintre dimensiunile de imagini înregistrate prin diverse module sau opțiuni de teme, de care cel mai probabil nu aveți nevoie în aplicație (aceste sunt doar stocate în directoare și în baza de date dar nu sunt de fapt folosite/vizibile în partea frontală)."
+
+#: image-regenerate-select-crop.php:1024
+msgid "By excluding these, the unnecessary image sizes will not be generated at all."
+msgstr "Excluzându-le pe acestea, dimensiunile de imagini nenecesare nu se vor genera deloc."
+
+#: image-regenerate-select-crop.php:1029
+msgid "Image Size Info"
+msgstr "Informații mărime imagine"
+
+#: image-regenerate-select-crop.php:1032
+msgid "The quality option is allowing you to control the quality of the images that are generated for each of the image sizes, starting from the quality of the image you upload. This can be useful for performance."
+msgstr "Opțiunea pentru calitate vă permite să controlați calitate imaginilor care sunt generate pentru fiecare dimensiune a imaginii, pornind de la calitatea imaginii încărcate. Acest lucru poate fi util pentru performanță."
+
+#: image-regenerate-select-crop.php:1032
+msgid "However, please be careful not to change the quality of the full image or the quality of the image size that you set as the forced original."
+msgstr "Cu toate acestea, vă rugăm să fiți atenți să nu modificați calitatea imaginii originale sau cea a dimensiunii de imagine pe care ați setat-o ca original forțat."
+
+#: image-regenerate-select-crop.php:1032
+msgid "Setting a lower quality is recommended for smaller images sizes, that are generated from the full/original file."
+msgstr "Setarea unei calități mai mici este recomandată pentru dimensiunile mici de imagini, cele care sunt generate din fișierul complet/original."
+
+#: image-regenerate-select-crop.php:1037
+msgid "Hide Preview"
+msgstr "Ascunde previzualizare"
+
+#: image-regenerate-select-crop.php:1040
+msgid "This option allows you to hide from the \"Image Regenerate & Select Crop Settings\" lightbox the details and options for the selected image sizes (when you or other admins are checking the image details, the hidden image sizes will not be shown)."
+msgstr "Această opțiune vă permite să ascundeți din caseta \"Setări pentru regenerare & tăiere selectivă imagine\" detaliile și opțiunile dimensiunilor de imagine selectate (când dvs. sau alți administratori verificați detaliile imaginii, dimensiunile de imagine ascunse nu se vor arăta)."
+
+#: image-regenerate-select-crop.php:1040
+msgid "This is useful when you want to restrict from other users the functionality of crop or resize for particular image sizes, or to just hide the image sizes you added to global ignore."
+msgstr "Aceasta este utilă când doriți să restricționați alor utilizatori funcționalitatea de tăiere sau scalare pentru anumite dimensiuni de imagine, sau pur și simplu să ascundeți dimensiunile de imagine marcate ca ignoră global."
+
+#: image-regenerate-select-crop.php:1045 image-regenerate-select-crop.php:1206
+msgid "Force Original"
+msgstr "Forțează ca original"
+
+#: image-regenerate-select-crop.php:1048
+msgid "This option means that when uploading an image, the original image will be replaced completely by the image size you select (the image generated, scaled or cropped to a specific width and height will become the full size for that image going further)."
+msgstr "Această opțiune înseamnă că atunci când se încarcă o imagine, imagine originală va fi înlocuită complet de către dimensiunea de imagine pe care o selectați (imagine generată, redimensionată sau tăiată la o lățime și înălțime specifică va deveni imagine completă care va fi folosită mai departe pentru acea imagine)."
+
+#: image-regenerate-select-crop.php:1048
+msgid "This can be very useful if you do not use the original image in any of the layouts at the full size, and this might save some storage space."
+msgstr "Aceasta poate fi foarte utilă dacă nu folosiți imaginea originală în nicio machetă la dimensiunea completă, și acest lucru ar putea salva niște spațiu de stocare."
+
+#: image-regenerate-select-crop.php:1048
+msgid "Leave \"nothing selected\" to keep the full/original image as the file you upload (default WordPress behavior)."
+msgstr "Lăsați \"nimic selectat\" pentru a păstra imaginea originală/completă ca și fișierul pe care îl încărcați (comportamentul implicit WordPress)."
+
+#: image-regenerate-select-crop.php:1053
+msgid "Default Crop"
+msgstr "Tăiere implicită"
+
+#: image-regenerate-select-crop.php:1056
+msgid "This option allows you to set a default crop position for the images generated for a particular image size. This option will be applied when you chose to regenerate an individual image or all of these, and also when a new image is uploaded."
+msgstr "Această opțiune vă permite să setați o poziție implicită de tăiere a tuturor imaginilor generate pentru o anumită dimensiune de imagine. Opțiunea aceasta va fi aplicată când alegeți să regenerați o imagine individuală sau pe toate acestea, și de asemenea când se încarcă o nouă imagine."
+
+#: image-regenerate-select-crop.php:1061 image-regenerate-select-crop.php:1123
+msgid "Cleanup"
+msgstr "Curățare"
+
+#: image-regenerate-select-crop.php:1064
+msgid "This option allows you to clean up all the image generated for a particular image size you already have in the application, and that you do not use or do not want to use anymore on the front-end."
+msgstr "Această opțiune vă permite să curățați toate imaginile generate pentru o anumită dimensiune de imagine pe care deja o aveți în aplicație, și pe care nu o folosiți sau pe care nu mai doriți să o folosiți în partea frontală."
+
+#: image-regenerate-select-crop.php:1064
+msgid "Please be careful, once you click to remove the images for a selected image size, the action is irreversible, the images generated up this point will be deleted from your folders and database records."
+msgstr "Vă rugăm să fiți atenți, din momentul în care apăsați să eliminați imaginile pentru dimensiunea de imagine selectată, imaginile generate până în acel moment vor fi șterse din directoare și din înregistrările din baza de date."
+
+#: image-regenerate-select-crop.php:1064
+msgid "You can regenerate these later if you click the Regenerate button."
+msgstr "Le puteți regenera mai târziu dacă apăsați butonul de regenerare."
+
+#: image-regenerate-select-crop.php:1069 image-regenerate-select-crop.php:1139
+#: image-regenerate-select-crop.php:1484 image-regenerate-select-crop.php:1738
+msgid "Regenerate"
+msgstr "Regenerare"
+
+#: image-regenerate-select-crop.php:1072
+msgid "This option allows you to regenerate the images for the selected image size."
+msgstr "Această opțiune vă permite să regenerați imaginile pentru dimensiunea de imagine selectată."
+
+#: image-regenerate-select-crop.php:1072
+msgid "Please be careful, once you click the button to regenerate the selected image size, the action is irreversible, the images already generated will be overwritten."
+msgstr "Vă rugăm să fiți atenți, din momentul în care apăsați butonul de regenerare pentru dimensiunea de imagine selectată, acțiunea este ireversibilă, imaginile generate deja vor fi suprascrise."
+
+#: image-regenerate-select-crop.php:1079
+msgid "nothing selected (keep the full/original file uploaded)"
+msgstr "nimic selectat (păstrează fișierul încărcat complet/original)"
+
+#: image-regenerate-select-crop.php:1102
+msgid "global ignore"
+msgstr "ignoră global"
+
+#: image-regenerate-select-crop.php:1107 image-regenerate-select-crop.php:1756
+msgid "Quality"
+msgstr "Calitate"
+
+#: image-regenerate-select-crop.php:1107
+msgid "Please be aware that your are changing the quality of the images going further for this images size!"
+msgstr "Vă rugăm să aveți în vedere că modificați calitatea imaginilor de acum înainte pentru această dimensiune de imagine!"
+
+#: image-regenerate-select-crop.php:1110
+msgid "hide"
+msgstr "ascunde"
+
+#: image-regenerate-select-crop.php:1113
+msgid "force original"
+msgstr "forțează ca original"
+
+#: image-regenerate-select-crop.php:1117
+msgid "Crop Position"
+msgstr "Poziție tăiere"
+
+#: image-regenerate-select-crop.php:1123
+msgid "Cleanup All"
+msgstr "Curăță tot"
+
+#: image-regenerate-select-crop.php:1139
+msgid "Regenerate All"
+msgstr "Regenerează tot"
+
+#: image-regenerate-select-crop.php:1163
+msgid "Advanced custom rules based on the post where the image will be uploaded"
+msgstr "Reguli personalizate avansate în funcție de articolul unde se încarcă imaginea"
+
+#: image-regenerate-select-crop.php:1165
+msgid "The advanced custom rules you configure below are global and will override all the other settings you set above."
+msgstr "Reguli personalizate avansate pe care le configurați mai jos sunt globale și vor suprascrie toate celelalte setări făcute mai sus."
+
+#: image-regenerate-select-crop.php:1165
+msgid "Please be aware that the custom rules will apply only if you actually set up the post to use one of the rules below, and only then upload images to that post."
+msgstr "Vă rugăm să aveți în vedere că regulile personalizate se vor aplica numai dacă mai întâi setați articolul să folosească una dintre regulile de mai jos, și abia apoi încărcați imaginile la acel articol."
+
+#: image-regenerate-select-crop.php:1168
+msgid "Very important: the order in which the rules are checked and have priority is: post ID, post type, post format, post parent, post tags, post categories, other taxonomies. Any of the rules that match first in this order will apply for the images that are generated when you upload images to that post (and the rest of the rules will be ignored). You can suppress at any time any of the rules and then enable these back as it suits you."
+msgstr "Foarte important: ordinea în care se verifică și în care au prioritate regulile este: ID articol, tip articol, format articol, părinte articol, etichete articol, categorii articol, alte taxonomii. Oricare dintre reguli care se potrivește prima în această ordine se va aplica pentru imaginile care se generează când încărcați imagini la acel articol (și restul regulilor vor fi ignorate). Puteți suprima în orice moment oricare dintre reguli ca apoi să le activați la loc după cum vă este convenabil."
+
+#: image-regenerate-select-crop.php:1198
+msgid "The post has"
+msgstr "Articolul are"
+
+#: image-regenerate-select-crop.php:1199
+msgid "Ex: Categories"
+msgstr "Ex: Categorii"
+
+#: image-regenerate-select-crop.php:1202
+msgid "Value"
+msgstr "Valoare"
+
+#: image-regenerate-select-crop.php:1203
+msgid "Ex: gallery,my-photos"
+msgstr "Ex: galerie,pozele-mele"
+
+#: image-regenerate-select-crop.php:1207
+msgid "Ex: large"
+msgstr "Ex: large"
+
+#: image-regenerate-select-crop.php:1210
+msgid "Generate only these image sizes for the rule"
+msgstr "Generează doar aceste dimensiuni de imagine pentru regulă"
+
+#: image-regenerate-select-crop.php:1211
+msgid "Ex: thumbnail, large"
+msgstr "Ex: thumbnail, large"
+
+#: image-regenerate-select-crop.php:1214
+msgid "Suppress"
+msgstr "Suprimă"
+
+#: image-regenerate-select-crop.php:1236 image-regenerate-select-crop.php:1801
+msgid "N/A"
+msgstr "N/A"
+
+#: image-regenerate-select-crop.php:1296
+msgid "This rule is SUPPRESSED"
+msgstr "Regula este SUPRIMATĂ"
+
+#: image-regenerate-select-crop.php:1298
+msgid "This rule is ACTIVE"
+msgstr "Regula este ACTIVĂ"
+
+#. Translators: %1$s type, %2$s value, %3$s only.
+#: image-regenerate-select-crop.php:1305
+msgid "uploading images to a post that has %1$s as %2$s will generate only the %3$s sizes."
+msgstr "încărcând imagini la un articol care are %1$s ca %2$s se vor genera doar dimensiunile %3$s."
+
+#. Translators: %1$s type, %2$s value, %3$s original, %4$s only.
+#: image-regenerate-select-crop.php:1313
+msgid "uploading images to a post that has %1$s as %2$s will force the original image to %3$s size and will generate only the %4$s sizes."
+msgstr "încărcând imagini la un articol care are %1$s ca %2$s se va forța imaginea originală la dimensiunea și %3$s se vor genera doar dimensiunile %4$s."
+
+#: image-regenerate-select-crop.php:1337
+msgid "The best thing about giving of ourselves is that what we get is always better than what we give."
+msgstr "Cel mai bun lucru atunci când dăruim este că ceea ce primim este întotdeauna mai bun decât ceea ce dăruim."
+
+#: image-regenerate-select-crop.php:1483
+msgid "Details/Options"
+msgstr "Detalii/Opțiuni"
+
+#: image-regenerate-select-crop.php:1483
+msgid "Image Details"
+msgstr "Detalii imagine"
+
+#: image-regenerate-select-crop.php:1546
+msgid "Click to generate a crop of the image from this position"
+msgstr "Apăsați ca să generați o tăiere a imaginii din această poziție"
+
+#: image-regenerate-select-crop.php:1682
+msgid "Image Details & Options"
+msgstr "Detalii & opțiuni imagine"
+
+#: image-regenerate-select-crop.php:1690
+msgid "The original image"
+msgstr "Imaginea originală"
+
+#: image-regenerate-select-crop.php:1690
+msgid "file size"
+msgstr "mărime completă"
+
+#: image-regenerate-select-crop.php:1691
+msgid "File"
+msgstr "Fișier"
+
+#: image-regenerate-select-crop.php:1695
+msgid "Image size details & generated image"
+msgstr "Detalii mărime imagine & imagine generată"
+
+#: image-regenerate-select-crop.php:1696
+msgid "Actions"
+msgstr "Acțiuni"
+
+#: image-regenerate-select-crop.php:1708 image-regenerate-select-crop.php:1724
+#: image-regenerate-select-crop.php:1727 image-regenerate-select-crop.php:1733
+#: image-regenerate-select-crop.php:1741
+msgid "Crop image"
+msgstr "Tăiere imagine"
+
+#: image-regenerate-select-crop.php:1710 image-regenerate-select-crop.php:1735
+#: image-regenerate-select-crop.php:1743
+msgid "Scale image"
+msgstr "Redimensionare imagine"
+
+#: image-regenerate-select-crop.php:1719
+msgid "NOT FOUND"
+msgstr "NU A FOST GĂSIT"
+
+#: image-regenerate-select-crop.php:1746
+msgid "Cannot be generated, the original image is smaller than the requested size."
+msgstr "Nu s-a putut genera, imaginea originală este mai mică decât mărimea cerută."
+
+#: image-regenerate-select-crop.php:1756
+msgid "Info"
+msgstr "Informații"
+
+#: image-regenerate-select-crop.php:1761
+msgid "File size"
+msgstr "Mărime fișier"
+
+#: image-regenerate-select-crop.php:1778
+msgid "The file is missing!"
+msgstr "Fișierul lipsește!"
+
+#: image-regenerate-select-crop.php:1783 image-regenerate-select-crop.php:1851
+#: image-regenerate-select-crop.php:2337 image-regenerate-select-crop.php:2422
+msgid "Something went wrong!"
+msgstr "Ceva a decurs greșit!"
+
+#: image-regenerate-select-crop.php:1848 image-regenerate-select-crop.php:2334
+#: image-regenerate-select-crop.php:2419
+msgid "Done!"
+msgstr "Gata!"
+
+#: image-regenerate-select-crop.php:2127 image-regenerate-select-crop.php:2129
+#: image-regenerate-select-crop.php:2134
+msgid "scale"
+msgstr "redimensionare"
+
+#: image-regenerate-select-crop.php:2127 image-regenerate-select-crop.php:2134
+msgid "to max width of"
+msgstr "la lățime maximă de"
+
+#: image-regenerate-select-crop.php:2129
+msgid "to max height of"
+msgstr "la înălțime maximă de"
+
+#: image-regenerate-select-crop.php:2132
+msgid "crop"
+msgstr "tăiere"
+
+#: image-regenerate-select-crop.php:2132
+msgid "of"
+msgstr "la"
+
+#: image-regenerate-select-crop.php:2134
+msgid "or to max height of"
+msgstr "sau la înălțime maximă de"
+
+#: image-regenerate-select-crop.php:2268
+msgid "REMAINING TO CLEAN UP"
+msgstr "RĂMÂN SĂ SE CUREȚE"
+
+#: image-regenerate-select-crop.php:2293 image-regenerate-select-crop.php:2308
+#: image-regenerate-select-crop.php:2298
+msgid "The image"
+msgstr "Imaginea"
+
+#: image-regenerate-select-crop.php:2293
+msgid "has been deleted."
+msgstr "a fost ștearsă."
+
+#: image-regenerate-select-crop.php:2298
+msgid "could not be deleted (it is the original file)."
+msgstr "nu a putut fi șters (este fișierul original)."
+
+#: image-regenerate-select-crop.php:2308
+msgid "could not be found."
+msgstr "nu a fost găsit."
+
+#: image-regenerate-select-crop.php:2372
+msgid "REMAINING TO REGENERATE"
+msgstr "RĂMÂN SĂ SE REGENEREZE"
+
+#: image-regenerate-select-crop.php:2388 image-regenerate-select-crop.php:2742
+msgid "Could not generate, the original is too small."
+msgstr "Nu se poate genera, originalul este prea mic."
+
+#: image-regenerate-select-crop.php:2391
+msgid "Could not generate, the original file is missing."
+msgstr "Nu se poate genera, fișierul originalul lipsește."
+
+#: image-regenerate-select-crop.php:2603
+msgid "Settings"
+msgstr "Setări"
+
+#: image-regenerate-select-crop.php:2604
+msgid "Plugin URL"
+msgstr "URL-ul modulului"
+
+#: image-regenerate-select-crop.php:2633
+msgid "Please specify the site id (1 if not multisite)."
+msgstr "Vă rugăm să specificați ID-ul sitului (1 daca nu este multi-site)."
+
+#: image-regenerate-select-crop.php:2745
+msgid "Could not generate, the original file is missing"
+msgstr "Nu se poate genera, fișierul originalul lipsește"
+
+#: image-regenerate-select-crop.php:2801 image-regenerate-select-crop.php:2869
+msgid "was removed"
+msgstr "a fost eliminat"
+
+#: image-regenerate-select-crop.php:2805 image-regenerate-select-crop.php:2873
+msgid "Could not remove"
+msgstr "Nu a putut fi eliminat"
+
+#: image-regenerate-select-crop.php:2805 image-regenerate-select-crop.php:2873
+msgid "The image is missing or it is the original file."
+msgstr "Imaginea lipsește sau aceasta este fișierul original."
+
+#. Plugin Name of the plugin/theme
+msgid "Image Regenerate & Select Crop"
+msgstr "Regenerare & tăiere selectivă imagine"
+
+#. Plugin URI of the plugin/theme
+msgid "https://iuliacazan.ro/image-regenerate-select-crop/"
+msgstr "https://iuliacazan.ro/image-regenerate-select-crop/"
+
+#. Description of the plugin/theme
+msgid "Regenerate and crop images, details and actions for image sizes registered and image sizes generated, clean up, placeholders and custom rules, WP-CLI commands."
+msgstr "Regenerare și tăiere imagini, detalii și acțiuni pentru dimensiunile de imagine înregistrate și dimensiunile de imagine generate, curățare, substituenți și reguli personalizate, comenzi WP-CLI."
+
+#. Author of the plugin/theme
+msgid "Iulia Cazan"
+msgstr "Iulia Cazan"
+
+#. Author URI of the plugin/theme
+msgid "https://profiles.wordpress.org/iulia-cazan"
+msgstr "https://profiles.wordpress.org/iulia-cazan"

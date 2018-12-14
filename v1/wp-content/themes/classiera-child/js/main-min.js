@@ -1,0 +1,1 @@
+$(document).ready(function(){$("#lightgallery").lightGallery({selector:".gallery-image",mode:"lg-scale-up",speed:800,cssEasing:"cubic-bezier(0.25, 0, 0.25, 1)",escKey:!0,enableDrag:!0,enableSwipe:!0})}),$(function(){$('[data-toggle="tooltip"]').tooltip()});

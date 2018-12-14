@@ -1,0 +1,645 @@
+# Copyright (C) 2018 Image Regenerate & Select Crop
+# This file is distributed under the same license as the Image Regenerate & Select Crop package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Image Regenerate & Select Crop 4.3\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/image-regenerate-"
+"select-crop\n"
+"POT-Creation-Date: 2018-09-07 13:05:52+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+
+#: image-regenerate-select-crop.php:145
+msgid "Left/Top"
+msgstr ""
+
+#: image-regenerate-select-crop.php:146
+msgid "Center/Top"
+msgstr ""
+
+#: image-regenerate-select-crop.php:147
+msgid "Right/Top"
+msgstr ""
+
+#: image-regenerate-select-crop.php:148
+msgid "Left/Center"
+msgstr ""
+
+#: image-regenerate-select-crop.php:149
+msgid "Center/Center"
+msgstr ""
+
+#: image-regenerate-select-crop.php:150
+msgid "Right/Center"
+msgstr ""
+
+#: image-regenerate-select-crop.php:151
+msgid "Left/Bottom"
+msgstr ""
+
+#: image-regenerate-select-crop.php:152
+msgid "Center/Bottom"
+msgstr ""
+
+#: image-regenerate-select-crop.php:153
+msgid "Right/Bottom"
+msgstr ""
+
+#: image-regenerate-select-crop.php:205
+msgid "Cleanup all?"
+msgstr ""
+
+#: image-regenerate-select-crop.php:206
+msgid "Regenerate all?"
+msgstr ""
+
+#: image-regenerate-select-crop.php:207
+msgid ""
+"This operation might take a while, depending on how many images you have."
+msgstr ""
+
+#: image-regenerate-select-crop.php:208
+msgid "The operation is irreversible!"
+msgstr ""
+
+#: image-regenerate-select-crop.php:209 image-regenerate-select-crop.php:1716
+msgid "Resolution"
+msgstr ""
+
+#: image-regenerate-select-crop.php:220 image-regenerate-select-crop.php:221
+#: image-regenerate-select-crop.php:932
+msgid "Image Regenerate & Select Crop Settings"
+msgstr ""
+
+#: image-regenerate-select-crop.php:709 image-regenerate-select-crop.php:905
+msgid "Action not allowed."
+msgstr ""
+
+#: image-regenerate-select-crop.php:709
+msgid "Security Breach"
+msgstr ""
+
+#: image-regenerate-select-crop.php:763
+msgid "The plugin settings have been updated successfully."
+msgstr ""
+
+#: image-regenerate-select-crop.php:934
+msgid ""
+"Please make sure you visit and update your settings here whenever you "
+"activate a new theme or plugins, so that the new image size registered, "
+"adjusted or removed to be reflected also here, and in this way to assure the "
+"optimal behavior for the features of this plugin."
+msgstr ""
+
+#: image-regenerate-select-crop.php:938
+msgid "Image Regenerate & Select Crop Settings are not configured yet."
+msgstr ""
+
+#: image-regenerate-select-crop.php:951
+msgid "Option to Enable Placeholders"
+msgstr ""
+
+#: image-regenerate-select-crop.php:952
+msgid ""
+"This option allows you to display placeholders for the front-side images "
+"called programmatically (the images that are not embedded in the content "
+"with their src, but exposed using WordPress native functions). If there is "
+"no placeholder set, then the WordPress default behavior would be to display "
+"the full-size image instead of a missing image size, hence your pages might "
+"load slower, and when using grids, the items would not look even."
+msgstr ""
+
+#: image-regenerate-select-crop.php:961
+msgid "Images Placeholders Developer Mode"
+msgstr ""
+
+#: image-regenerate-select-crop.php:964
+msgid ""
+"If you activate the \"force global\" option, all the images on the front-"
+"side that are related to posts will be replaced with the placeholders that "
+"mention the image size required. This is useful for debugging, to quickly "
+"identify the image sizes used for each layout and perhaps to help you "
+"regenerate the mission ones or decide what to keep or what to remove."
+msgstr ""
+
+#: image-regenerate-select-crop.php:964
+msgid ""
+"If you activate the \"only missing images\" option, all the programmatically "
+"called images on the front-side that are related to posts and do not have "
+"the requested image size generated will be replaced with the placeholders "
+"that mention the image size required. This is useful for showing smaller "
+"images instead of the full-size images (as WordPress does by default), hence "
+"for speeding up the pages loading."
+msgstr ""
+
+#: image-regenerate-select-crop.php:969
+msgid "no placeholder"
+msgstr ""
+
+#: image-regenerate-select-crop.php:972
+msgid "force global"
+msgstr ""
+
+#: image-regenerate-select-crop.php:975
+msgid "only missing images"
+msgstr ""
+
+#: image-regenerate-select-crop.php:977 image-regenerate-select-crop.php:1012
+#: image-regenerate-select-crop.php:1157 image-regenerate-select-crop.php:1328
+msgid "Save Settings"
+msgstr ""
+
+#: image-regenerate-select-crop.php:981
+msgid "Option to Exclude Image Sizes"
+msgstr ""
+
+#: image-regenerate-select-crop.php:982
+msgid ""
+"This plugin provides the option to select image sizes that will be excluded "
+"from the generation of the new images. By default, all image sizes defined "
+"in the system will be allowed (these are programmatically registered by the "
+"themes and plugins you activate in your site, without you even knowing about "
+"these). You can set up a global configuration, or more specific "
+"configuration for all images attached to a particular post type. If no "
+"particular settings are made for a post type, then the default general "
+"settings will be used."
+msgstr ""
+
+#: image-regenerate-select-crop.php:982
+msgid ""
+"The options for which you made some settings are marked with * in the "
+"dropdown below."
+msgstr ""
+
+#: image-regenerate-select-crop.php:986
+msgid "Apply the settings below for the selected option"
+msgstr ""
+
+#: image-regenerate-select-crop.php:993
+msgid "General settings (used as default for all images)"
+msgstr ""
+
+#: image-regenerate-select-crop.php:1002
+msgid "Settings for images attached to a "
+msgstr ""
+
+#: image-regenerate-select-crop.php:1019 image-regenerate-select-crop.php:1029
+#: image-regenerate-select-crop.php:1037 image-regenerate-select-crop.php:1045
+#: image-regenerate-select-crop.php:1061 image-regenerate-select-crop.php:1069
+msgid "Details"
+msgstr ""
+
+#: image-regenerate-select-crop.php:1020
+msgid "Global Ignore"
+msgstr ""
+
+#: image-regenerate-select-crop.php:1023
+msgid ""
+"This option allows you to exclude globally from the application some of the "
+"image sizes that are registered through various plugins and themes options, "
+"that you perhaps do not need at all in your application (these are just "
+"stored in your folders and database but not actually used/visible on the "
+"front-end)."
+msgstr ""
+
+#: image-regenerate-select-crop.php:1024
+msgid ""
+"By excluding these, the unnecessary image sizes will not be generated at all."
+msgstr ""
+
+#: image-regenerate-select-crop.php:1029
+msgid "Image Size Info"
+msgstr ""
+
+#: image-regenerate-select-crop.php:1032
+msgid ""
+"The quality option is allowing you to control the quality of the images that "
+"are generated for each of the image sizes, starting from the quality of the "
+"image you upload. This can be useful for performance."
+msgstr ""
+
+#: image-regenerate-select-crop.php:1032
+msgid ""
+"However, please be careful not to change the quality of the full image or "
+"the quality of the image size that you set as the forced original."
+msgstr ""
+
+#: image-regenerate-select-crop.php:1032
+msgid ""
+"Setting a lower quality is recommended for smaller images sizes, that are "
+"generated from the full/original file."
+msgstr ""
+
+#: image-regenerate-select-crop.php:1037
+msgid "Hide Preview"
+msgstr ""
+
+#: image-regenerate-select-crop.php:1040
+msgid ""
+"This option allows you to hide from the \"Image Regenerate & Select Crop "
+"Settings\" lightbox the details and options for the selected image sizes "
+"(when you or other admins are checking the image details, the hidden image "
+"sizes will not be shown)."
+msgstr ""
+
+#: image-regenerate-select-crop.php:1040
+msgid ""
+"This is useful when you want to restrict from other users the functionality "
+"of crop or resize for particular image sizes, or to just hide the image "
+"sizes you added to global ignore."
+msgstr ""
+
+#: image-regenerate-select-crop.php:1045 image-regenerate-select-crop.php:1206
+msgid "Force Original"
+msgstr ""
+
+#: image-regenerate-select-crop.php:1048
+msgid ""
+"This option means that when uploading an image, the original image will be "
+"replaced completely by the image size you select (the image generated, "
+"scaled or cropped to a specific width and height will become the full size "
+"for that image going further)."
+msgstr ""
+
+#: image-regenerate-select-crop.php:1048
+msgid ""
+"This can be very useful if you do not use the original image in any of the "
+"layouts at the full size, and this might save some storage space."
+msgstr ""
+
+#: image-regenerate-select-crop.php:1048
+msgid ""
+"Leave \"nothing selected\" to keep the full/original image as the file you "
+"upload (default WordPress behavior)."
+msgstr ""
+
+#: image-regenerate-select-crop.php:1053
+msgid "Default Crop"
+msgstr ""
+
+#: image-regenerate-select-crop.php:1056
+msgid ""
+"This option allows you to set a default crop position for the images "
+"generated for a particular image size. This option will be applied when you "
+"chose to regenerate an individual image or all of these, and also when a new "
+"image is uploaded."
+msgstr ""
+
+#: image-regenerate-select-crop.php:1061 image-regenerate-select-crop.php:1123
+msgid "Cleanup"
+msgstr ""
+
+#: image-regenerate-select-crop.php:1064
+msgid ""
+"This option allows you to clean up all the image generated for a particular "
+"image size you already have in the application, and that you do not use or "
+"do not want to use anymore on the front-end."
+msgstr ""
+
+#: image-regenerate-select-crop.php:1064
+msgid ""
+"Please be careful, once you click to remove the images for a selected image "
+"size, the action is irreversible, the images generated up this point will be "
+"deleted from your folders and database records."
+msgstr ""
+
+#: image-regenerate-select-crop.php:1064
+msgid "You can regenerate these later if you click the Regenerate button."
+msgstr ""
+
+#: image-regenerate-select-crop.php:1069 image-regenerate-select-crop.php:1139
+#: image-regenerate-select-crop.php:1484 image-regenerate-select-crop.php:1738
+msgid "Regenerate"
+msgstr ""
+
+#: image-regenerate-select-crop.php:1072
+msgid ""
+"This option allows you to regenerate the images for the selected image size."
+msgstr ""
+
+#: image-regenerate-select-crop.php:1072
+msgid ""
+"Please be careful, once you click the button to regenerate the selected "
+"image size, the action is irreversible, the images already generated will be "
+"overwritten."
+msgstr ""
+
+#: image-regenerate-select-crop.php:1079
+msgid "nothing selected (keep the full/original file uploaded)"
+msgstr ""
+
+#: image-regenerate-select-crop.php:1102
+msgid "global ignore"
+msgstr ""
+
+#: image-regenerate-select-crop.php:1107 image-regenerate-select-crop.php:1756
+msgid "Quality"
+msgstr ""
+
+#: image-regenerate-select-crop.php:1107
+msgid ""
+"Please be aware that your are changing the quality of the images going "
+"further for this images size!"
+msgstr ""
+
+#: image-regenerate-select-crop.php:1110
+msgid "hide"
+msgstr ""
+
+#: image-regenerate-select-crop.php:1113
+msgid "force original"
+msgstr ""
+
+#: image-regenerate-select-crop.php:1117
+msgid "Crop Position"
+msgstr ""
+
+#: image-regenerate-select-crop.php:1123
+msgid "Cleanup All"
+msgstr ""
+
+#: image-regenerate-select-crop.php:1139
+msgid "Regenerate All"
+msgstr ""
+
+#: image-regenerate-select-crop.php:1163
+msgid ""
+"Advanced custom rules based on the post where the image will be uploaded"
+msgstr ""
+
+#: image-regenerate-select-crop.php:1165
+msgid ""
+"The advanced custom rules you configure below are global and will override "
+"all the other settings you set above."
+msgstr ""
+
+#: image-regenerate-select-crop.php:1165
+msgid ""
+"Please be aware that the custom rules will apply only if you actually set up "
+"the post to use one of the rules below, and only then upload images to that "
+"post."
+msgstr ""
+
+#: image-regenerate-select-crop.php:1168
+msgid ""
+"Very important: the order in which the rules are checked and have priority "
+"is: post ID, post type, post format, post parent, post tags, post "
+"categories, other taxonomies. Any of the rules that match first in this "
+"order will apply for the images that are generated when you upload images to "
+"that post (and the rest of the rules will be ignored). You can suppress at "
+"any time any of the rules and then enable these back as it suits you."
+msgstr ""
+
+#: image-regenerate-select-crop.php:1198
+msgid "The post has"
+msgstr ""
+
+#: image-regenerate-select-crop.php:1199
+msgid "Ex: Categories"
+msgstr ""
+
+#: image-regenerate-select-crop.php:1202
+msgid "Value"
+msgstr ""
+
+#: image-regenerate-select-crop.php:1203
+msgid "Ex: gallery,my-photos"
+msgstr ""
+
+#: image-regenerate-select-crop.php:1207
+msgid "Ex: large"
+msgstr ""
+
+#: image-regenerate-select-crop.php:1210
+msgid "Generate only these image sizes for the rule"
+msgstr ""
+
+#: image-regenerate-select-crop.php:1211
+msgid "Ex: thumbnail, large"
+msgstr ""
+
+#: image-regenerate-select-crop.php:1214
+msgid "Suppress"
+msgstr ""
+
+#: image-regenerate-select-crop.php:1236 image-regenerate-select-crop.php:1801
+msgid "N/A"
+msgstr ""
+
+#: image-regenerate-select-crop.php:1296
+msgid "This rule is SUPPRESSED"
+msgstr ""
+
+#: image-regenerate-select-crop.php:1298
+msgid "This rule is ACTIVE"
+msgstr ""
+
+#. Translators: %1$s type, %2$s value, %3$s only.
+#: image-regenerate-select-crop.php:1305
+msgid ""
+"uploading images to a post that has %1$s as %2$s will generate only the %3$s "
+"sizes."
+msgstr ""
+
+#. Translators: %1$s type, %2$s value, %3$s original, %4$s only.
+#: image-regenerate-select-crop.php:1313
+msgid ""
+"uploading images to a post that has %1$s as %2$s will force the original "
+"image to %3$s size and will generate only the %4$s sizes."
+msgstr ""
+
+#: image-regenerate-select-crop.php:1337
+msgid ""
+"The best thing about giving of ourselves is that what we get is always "
+"better than what we give."
+msgstr ""
+
+#: image-regenerate-select-crop.php:1483
+msgid "Details/Options"
+msgstr ""
+
+#: image-regenerate-select-crop.php:1483
+msgid "Image Details"
+msgstr ""
+
+#: image-regenerate-select-crop.php:1546
+msgid "Click to generate a crop of the image from this position"
+msgstr ""
+
+#: image-regenerate-select-crop.php:1682
+msgid "Image Details & Options"
+msgstr ""
+
+#: image-regenerate-select-crop.php:1690
+msgid "The original image"
+msgstr ""
+
+#: image-regenerate-select-crop.php:1690
+msgid "file size"
+msgstr ""
+
+#: image-regenerate-select-crop.php:1691
+msgid "File"
+msgstr ""
+
+#: image-regenerate-select-crop.php:1695
+msgid "Image size details & generated image"
+msgstr ""
+
+#: image-regenerate-select-crop.php:1696
+msgid "Actions"
+msgstr ""
+
+#: image-regenerate-select-crop.php:1708 image-regenerate-select-crop.php:1724
+#: image-regenerate-select-crop.php:1727 image-regenerate-select-crop.php:1733
+#: image-regenerate-select-crop.php:1741
+msgid "Crop image"
+msgstr ""
+
+#: image-regenerate-select-crop.php:1710 image-regenerate-select-crop.php:1735
+#: image-regenerate-select-crop.php:1743
+msgid "Scale image"
+msgstr ""
+
+#: image-regenerate-select-crop.php:1719
+msgid "NOT FOUND"
+msgstr ""
+
+#: image-regenerate-select-crop.php:1746
+msgid ""
+"Cannot be generated, the original image is smaller than the requested size."
+msgstr ""
+
+#: image-regenerate-select-crop.php:1756
+msgid "Info"
+msgstr ""
+
+#: image-regenerate-select-crop.php:1761
+msgid "File size"
+msgstr ""
+
+#: image-regenerate-select-crop.php:1778
+msgid "The file is missing!"
+msgstr ""
+
+#: image-regenerate-select-crop.php:1783 image-regenerate-select-crop.php:1851
+#: image-regenerate-select-crop.php:2337 image-regenerate-select-crop.php:2422
+msgid "Something went wrong!"
+msgstr ""
+
+#: image-regenerate-select-crop.php:1848 image-regenerate-select-crop.php:2334
+#: image-regenerate-select-crop.php:2419
+msgid "Done!"
+msgstr ""
+
+#: image-regenerate-select-crop.php:2127 image-regenerate-select-crop.php:2129
+#: image-regenerate-select-crop.php:2134
+msgid "scale"
+msgstr ""
+
+#: image-regenerate-select-crop.php:2127 image-regenerate-select-crop.php:2134
+msgid "to max width of"
+msgstr ""
+
+#: image-regenerate-select-crop.php:2129
+msgid "to max height of"
+msgstr ""
+
+#: image-regenerate-select-crop.php:2132
+msgid "crop"
+msgstr ""
+
+#: image-regenerate-select-crop.php:2132
+msgid "of"
+msgstr ""
+
+#: image-regenerate-select-crop.php:2134
+msgid "or to max height of"
+msgstr ""
+
+#: image-regenerate-select-crop.php:2268
+msgid "REMAINING TO CLEAN UP"
+msgstr ""
+
+#: image-regenerate-select-crop.php:2293 image-regenerate-select-crop.php:2308
+#: image-regenerate-select-crop.php:2298
+msgid "The image"
+msgstr ""
+
+#: image-regenerate-select-crop.php:2293
+msgid "has been deleted."
+msgstr ""
+
+#: image-regenerate-select-crop.php:2298
+msgid "could not be deleted (it is the original file)."
+msgstr ""
+
+#: image-regenerate-select-crop.php:2308
+msgid "could not be found."
+msgstr ""
+
+#: image-regenerate-select-crop.php:2372
+msgid "REMAINING TO REGENERATE"
+msgstr ""
+
+#: image-regenerate-select-crop.php:2388 image-regenerate-select-crop.php:2742
+msgid "Could not generate, the original is too small."
+msgstr ""
+
+#: image-regenerate-select-crop.php:2391
+msgid "Could not generate, the original file is missing."
+msgstr ""
+
+#: image-regenerate-select-crop.php:2603
+msgid "Settings"
+msgstr ""
+
+#: image-regenerate-select-crop.php:2604
+msgid "Plugin URL"
+msgstr ""
+
+#: image-regenerate-select-crop.php:2633
+msgid "Please specify the site id (1 if not multisite)."
+msgstr ""
+
+#: image-regenerate-select-crop.php:2745
+msgid "Could not generate, the original file is missing"
+msgstr ""
+
+#: image-regenerate-select-crop.php:2801 image-regenerate-select-crop.php:2869
+msgid "was removed"
+msgstr ""
+
+#: image-regenerate-select-crop.php:2805 image-regenerate-select-crop.php:2873
+msgid "Could not remove"
+msgstr ""
+
+#: image-regenerate-select-crop.php:2805 image-regenerate-select-crop.php:2873
+msgid "The image is missing or it is the original file."
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "Image Regenerate & Select Crop"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "https://iuliacazan.ro/image-regenerate-select-crop/"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"Regenerate and crop images, details and actions for image sizes registered and "
+"image sizes generated, clean up, placeholders and custom rules, WP-CLI commands."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Iulia Cazan"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "https://profiles.wordpress.org/iulia-cazan"
+msgstr ""
