@@ -234,7 +234,7 @@ if(isset($_POST['postTitle'])){
 					'post_content' => strip_tags($_POST['postContent'], '<h1><h2><h3><strong><b><ul><ol><li><i><a><blockquote><center><embed><iframe><pre><table><tbody><tr><td><video><br>'),
 					'post-type' => 'post',
 					'post_category' => array($classieraMainCat, $classieraChildCat, $classieraThirdCat),
-					'tags_input'    => explode(',', $_POST['post_tags']),
+					'tags_input'	=> explode(',', $_POST['post_tags']),
 					'tax_input' => array(
 					'location' => $_POST['post_location'],
 					),
@@ -598,11 +598,11 @@ if(isset($_POST['postTitle'])){
 					foreach ($files['name'] as $key => $value) {				
 						if ($files['name'][$key]) {
 							$file = array(
-								'name'     => $files['name'][$key],
-								'type'     => $files['type'][$key],
+								'name'	 => $files['name'][$key],
+								'type'	 => $files['type'][$key],
 								'tmp_name' => $files['tmp_name'][$key],
-								'error'    => $files['error'][$key],
-								'size'     => $files['size'][$key]
+								'error'	=> $files['error'][$key],
+								'size'	 => $files['size'][$key]
 							);
 							$_FILES = array("upload_attachment" => $file);
 							
@@ -645,6 +645,11 @@ get_header(); ?>
 	$regularUsed = null;
 	$regularAds = null;
 ?>
+<style type="text/css">
+	.emptyRequire{
+		border: 1px solid red !important;
+	}
+</style>
 <div class="closeBump"></div>
 <section class="user-pages">
 	<div class="container">
@@ -693,7 +698,7 @@ get_header(); ?>
 						
 						$curUserargs = array(					
 							'author' => $user_ID,
-							'post_status' => array('publish', 'pending', 'draft', 'private', 'trash')    
+							'post_status' => array('publish', 'pending', 'draft', 'private', 'trash')	
 						);
 						$countPosts = count(get_posts($curUserargs));
 						if($currentRole == "administrator"){
@@ -719,70 +724,70 @@ get_header(); ?>
 						?>
 						
 						<div class="submit-post clearfix">
-				        	<form class="form-horizontal" id="primaryPostForm" method="POST" data-toggle="validator" enctype="multipart/form-data">
+							<form class="form-horizontal" id="primaryPostForm" method="POST" data-toggle="validator" enctype="multipart/form-data">
 								<!-- Advert types -->
-					          	<div id="section_type">
+							  	<div id="section_type">
 									<!-- <h5 style="text-align: center;"><?php echo $redux_demo['my-ads-heading'];?></h5> -->
 									<!-- <p><?php echo $redux_demo['my-ads-body-text'];?></p> -->
 									<div class="row credit-packages">
 										<div class="col-sm-12 col-md-4">
-										    <div class="thumbnail">
-										      <img src="<?php echo $redux_demo['standardads-media']['url']; ?>" alt="<?php esc_html_e($redux_demo['standard-sec-title'], 'classiera'); ?>">
-										      <div class="caption">
-										        <h3><?php esc_html_e($redux_demo['standard-sec-title'], 'classiera'); ?></h3>
-										        <p><?php esc_html_e($redux_demo['standard-sec-desc'], 'classiera'); ?></p>
-										        <p><a href="javascript:void(0)" id="standard" class="btn btn-primary btn-block post_adverts" role="button">Post Advert</a></p>
-										      </div>
-										    </div>
+											<div class="thumbnail">
+											  <img src="<?php echo $redux_demo['standardads-media']['url']; ?>" alt="<?php esc_html_e($redux_demo['standard-sec-title'], 'classiera'); ?>">
+											  <div class="caption">
+												<h3><?php esc_html_e($redux_demo['standard-sec-title'], 'classiera'); ?></h3>
+												<p><?php esc_html_e($redux_demo['standard-sec-desc'], 'classiera'); ?></p>
+												<p><a href="javascript:void(0)" id="standard" class="btn btn-primary btn-block post_adverts" role="button">Post Advert</a></p>
+											  </div>
+											</div>
 										</div>
 										<div class="col-sm-12 col-md-4">
-										    <div class="thumbnail">
-										      <img src="<?php echo $redux_demo['standardads-top-media']['url']; ?>" alt="<?php esc_html_e($redux_demo['standard-sec-title'], 'classiera'); ?>">
-										      <div class="caption">
-										        <h3><?php esc_html_e($redux_demo['standard-top-sec-title'], 'classiera'); ?></h3>
-										        <p><?php esc_html_e($redux_demo['standard-top-sec-desc'], 'classiera'); ?></p>
-										        <p><a href="javascript:void(0)" id="standard_top" class="btn btn-primary btn-block post_adverts" role="button">Post Advert</a></p>
-										      </div>
-										    </div>
+											<div class="thumbnail">
+											  <img src="<?php echo $redux_demo['standardads-top-media']['url']; ?>" alt="<?php esc_html_e($redux_demo['standard-sec-title'], 'classiera'); ?>">
+											  <div class="caption">
+												<h3><?php esc_html_e($redux_demo['standard-top-sec-title'], 'classiera'); ?></h3>
+												<p><?php esc_html_e($redux_demo['standard-top-sec-desc'], 'classiera'); ?></p>
+												<p><a href="javascript:void(0)" id="standard_top" class="btn btn-primary btn-block post_adverts" role="button">Post Advert</a></p>
+											  </div>
+											</div>
 										</div>
 										<div class="col-sm-12 col-md-4">
-										    <div class="thumbnail">
-										      <img src="<?php echo $redux_demo['doubleads-media']['url']; ?>" alt="<?php esc_html_e($redux_demo['double-sec-title'], 'classiera'); ?>">
-										      <div class="caption">
-										        <h3><?php esc_html_e($redux_demo['double-sec-title'], 'classiera'); ?></h3>
-										        <p><?php esc_html_e($redux_demo['double-sec-desc'], 'classiera'); ?></p>
-										        <p><a href="javascript:void(0)" id="double_sec" class="btn btn-primary btn-block post_adverts" role="button">Post Advert</a></p>
-										      </div>
-										    </div>
+											<div class="thumbnail">
+											  <img src="<?php echo $redux_demo['doubleads-media']['url']; ?>" alt="<?php esc_html_e($redux_demo['double-sec-title'], 'classiera'); ?>">
+											  <div class="caption">
+												<h3><?php esc_html_e($redux_demo['double-sec-title'], 'classiera'); ?></h3>
+												<p><?php esc_html_e($redux_demo['double-sec-desc'], 'classiera'); ?></p>
+												<p><a href="javascript:void(0)" id="double_sec" class="btn btn-primary btn-block post_adverts" role="button">Post Advert</a></p>
+											  </div>
+											</div>
 										</div>
 										<div class="col-sm-12 col-md-4">
-										    <div class="thumbnail">
-										      <img src="<?php echo $redux_demo['doublesize-media']['url']; ?>" alt="<?php esc_html_e($redux_demo['doublesize-sec-title'], 'classiera'); ?>">
-										      <div class="caption">
-										        <h3><?php esc_html_e($redux_demo['doublesize-sec-title'], 'classiera'); ?></h3>
-										        <p><?php esc_html_e($redux_demo['doublesize-sec-desc'], 'classiera'); ?></p>
-										        <p><a href="javascript:void(0)" id="double_top" class="btn btn-primary btn-block post_adverts" role="button">Post Advert</a></p>
-										      </div>
-										    </div>
+											<div class="thumbnail">
+											  <img src="<?php echo $redux_demo['doublesize-media']['url']; ?>" alt="<?php esc_html_e($redux_demo['doublesize-sec-title'], 'classiera'); ?>">
+											  <div class="caption">
+												<h3><?php esc_html_e($redux_demo['doublesize-sec-title'], 'classiera'); ?></h3>
+												<p><?php esc_html_e($redux_demo['doublesize-sec-desc'], 'classiera'); ?></p>
+												<p><a href="javascript:void(0)" id="double_top" class="btn btn-primary btn-block post_adverts" role="button">Post Advert</a></p>
+											  </div>
+											</div>
 										</div>
 									</div>
 								</div>
 								<!-- / Advert types -->
 
-					    		<div id="smartwizard" style="display: none;" class="container-fluid">
+								<div id="smartwizard" style="display: none;" class="container-fluid">
 
-					                <ul class="nav nav-pills">
-					                    <li><a href="#step-1">Step One</a></li>
-					                    <li><a href="#step-2">Step Two</a></li>
-					                    <li><a href="#step-3">Step Three</a></li>
-					                    <li><a href="#step-4">Step Four</a></li>
-					                    <li><a href="#step-5">Step Five</a></li>
-					                    <li><a href="#step-6">Step Six</a></li>
-					                    <li><a href="#step-7">Step Seven</a></li>
-					                    <li><a href="#step-8">Step Eight</a></li>
-					                </ul>
-					             
-					                <div class="step-container clearfix">
+									<ul class="nav nav-pills">
+										<li><a href="#step-1">Step One</a></li>
+										<li><a href="#step-2">Step Two</a></li>
+										<li><a href="#step-3">Step Three</a></li>
+										<li><a href="#step-4">Step Four</a></li>
+										<li><a href="#step-5">Step Five</a></li>
+										<li><a href="#step-6">Step Six</a></li>
+										<li><a href="#step-7">Step Seven</a></li>
+										<li><a href="#step-8">Step Eight</a></li>
+									</ul>
+								 
+									<div class="step-container clearfix">
 										<?php
 											// $post_id = 955;
 											// $queried_post = get_post_meta($post_id);
@@ -790,16 +795,16 @@ get_header(); ?>
 										?>
 
 										<!-- Begin Step-1 -->
-						                <div id="step-1">
-						                	<div class="row">
+										<div id="step-1">
+											<div class="row">
 												<div class="col-lg-12">
 													<h3 class="text-center" style="margin-bottom: 30px;"><?php esc_html_e('Step One Information', 'classiera') ?></h3>
 												</div>
 
-							                    <div class="col-sm-12 col-lg-6">
-							                    	<div class="form-group">
-								                        <!--Category-->
-														<select id="categorySelect" name="categorySelect">
+												<div class="col-sm-12 col-lg-6">
+													<div class="form-group">
+														<!--Category-->
+														<select id="categorySelect" name="categorySelect" required>
 															<option value="" selected disabled><?php esc_html_e('Choose Your Category', 'classiera'); ?></option>
 															<?php 
 																$categories = get_terms('category', array(
@@ -829,56 +834,60 @@ get_header(); ?>
 														</select><!--list-unstyled-->														
 														<input type="hidden" name="adstype_price" value="2" id="adstype_price">
 														<input class="classiera-main-cat-field" name="classiera-main-cat-field" type="hidden" value="">
-								                        <!--Category-->
+														<!--Category-->
 														<!-- Nickname -->
-								                        <input id="title" data-minlength="1" name="postTitle" type="text" class="form-control form-control-md" placeholder="<?php esc_html_e('Your Nickname', 'classiera') ?>" required>
+														<div class="form-group has-error has-danger">
+															<input id="title" data-minlength="1" name="postTitle" type="text" class="form-control form-control-md" placeholder="<?php esc_html_e('Your Nickname', 'classiera') ?>" required>
+														</div>
 														<input  value="1" type="hidden" name="classiera_ads_status">
 														<input  value="1" type="hidden" name="classiera_ads_statustime">
 														<!-- / Nickname -->
+														<!-- Age -->
 														<input id="age" name="user_age" type="text" class="form-control form-control-md" placeholder="<?php esc_html_e('Enter Your Age', 'classiera') ?>" required>
 														<input type="hidden" name="age_verified" id="age_verified" value="0">
-							                    	</div><!-- / Form group -->
-							                    </div><!-- / col-sm-12 col-lg-6 -->
+														<!-- / Age -->
+													</div><!-- / Form group -->
+												</div><!-- / col-sm-12 col-lg-6 -->
 												
 
-							                    <div class="col-sm-12 col-lg-6">
+												<div class="col-sm-12 col-lg-6">
 													<!--ContactPhone 1-->
-												    <div class="form-group">
-														<input type="number" name="post_phone" class="form-control form-control-md" placeholder="<?php esc_html_e('Enter your Mobile Number', 'classiera') ?>">
+													<div class="form-group">
+														<input type="number" name="post_phone" class="form-control form-control-md" placeholder="<?php esc_html_e('Enter your Mobile Number', 'classiera') ?>" required>
 														<input type="number" name="second_phone" class="form-control form-control-md" placeholder="<?php esc_html_e('Enter your Second Mobile Number', 'classiera') ?>"> 
-														<select name="nationality">
+														<select name="nationality" required>
 															<option value="" selected disabled><?php esc_html_e('Select Your Nationality', 'classiera'); ?></option>
 															<option value="Romanian"><?php esc_html_e('Romanian', 'classiera'); ?></option>
 															<option value="Russian"><?php esc_html_e('Russian', 'classiera'); ?></option>
 															<option value="British"><?php esc_html_e('British', 'classiera'); ?></option>
 															<option value="Brazilian"><?php esc_html_e('Brazilian', 'classiera'); ?></option>
 														</select> 
-												    </div>
-													<!-- / ContactPhone 1-->							                    	
-							                        <!-- <div class="classieraExtraFields" style="display:none;"></div> -->
-							                    </div>
+													</div>
+													<!-- / ContactPhone 1-->													
+													<!-- <div class="classieraExtraFields" style="display:none;"></div> -->
+												</div>
 
 
-							                    <div class="col-sm-12">
-							                    	<div class="form-group">
-						                            	<textarea name="postContent" id="description" class="form-control" data-error="<?php esc_html_e('Write description', 'classiera') ?>" required></textarea>
-						                            	<!-- Keywords Field -->
-				                            			<input id="fav-tags" type="text" name="post_tags" class="form-control form-control-md" placeholder="<?php esc_html_e('enter keywords for better search..!', 'classiera') ?>">
-						                            	<!-- / Keywords Field -->
-						                        	</div><!--Ad description-->
-							                    </div>
+												<div class="col-sm-12">
+													<div class="form-group">
+														<textarea name="postContent" id="description" class="form-control" data-error="<?php esc_html_e('Write description', 'classiera') ?>" required></textarea>
+														<!-- Keywords Field -->
+														<input id="fav-tags" type="text" name="post_tags" class="form-control form-control-md" placeholder="<?php esc_html_e('enter keywords for better search..!', 'classiera') ?>">
+														<!-- / Keywords Field -->
+													</div><!--Ad description-->
+												</div>
 											</div>
-						                </div>
+										</div>
 										<!-- End Step-1 -->
 										<!-- Begin Step-2 -->
-					                    <div id="step-2">
+										<div id="step-2">
 											<div class="row">
 												<div class="col-lg-12">
 													<h3 class="text-center" style="margin-bottom: 30px;"><?php esc_html_e('Step Two Information', 'classiera'); ?></h3>
 												</div>
 												<div class="col-sm-12 col-lg-6">
 													<div class="form-group">
-														<select name="hair_color">
+														<select name="hair_color" required>
 															<option value="" disabled selected><?php esc_html_e('Hair Color', 'classiera'); ?></option>
 															<option value="Blonde"><?php esc_html_e('Blonde', 'classiera'); ?></option>
 															<option value="Black"><?php esc_html_e('Black', 'classiera'); ?></option>
@@ -887,7 +896,7 @@ get_header(); ?>
 															<option value="Other"><?php esc_html_e('Other', 'classiera'); ?></option>
 														</select>
 
-														<select name="eyes_color">
+														<select name="eyes_color" required>
 															<option value="" disabled selected><?php esc_html_e('Eyes Color', 'classiera'); ?></option>
 															<option value="Blue"><?php esc_html_e('Blue', 'classiera'); ?></option>
 															<option value="Black"><?php esc_html_e('Black', 'classiera'); ?></option>
@@ -897,7 +906,7 @@ get_header(); ?>
 															<option value="Amber"><?php esc_html_e('Amber', 'classiera'); ?></option>
 														</select>
 
-														<select name="ethnicity">
+														<select name="ethnicity" required>
 															<option value="" disabled selected><?php esc_html_e('Ethnicity', 'classiera'); ?></option>
 															<option value="White"><?php esc_html_e('White', 'classiera'); ?></option>
 															<option value="Black"><?php esc_html_e('Black', 'classiera'); ?></option>
@@ -907,7 +916,7 @@ get_header(); ?>
 														</select>
 
 														<span class="pre-heading"><?php esc_html_e('Height', 'classiera'); ?>:</span>
-														<select name="height_inches" class="third-size pull-right">
+														<select name="height_inches" class="third-size pull-right" required>
 															<option value="" disabled selected><?php esc_html_e('Inches', 'classiera'); ?></option>
 															<option value="1"><?php esc_html_e('1', 'classiera'); ?>"</option>
 															<option value="2"><?php esc_html_e('2', 'classiera'); ?>"</option>
@@ -921,7 +930,7 @@ get_header(); ?>
 															<option value="10"><?php esc_html_e('10', 'classiera'); ?>"</option>
 															<option value="11"><?php esc_html_e('11', 'classiera'); ?>"</option>
 														</select>
-														<select name="height_feet" class="third-size pull-right add-margin">
+														<select name="height_feet" class="third-size pull-right add-margin" required>
 															<option value="" disabled selected><?php esc_html_e('Feet', 'classiera'); ?></option>
 															<option value="4"><?php esc_html_e('4 Feet', 'classiera'); ?></option>
 															<option value="5"><?php esc_html_e('5 Feet', 'classiera'); ?></option>
@@ -929,7 +938,7 @@ get_header(); ?>
 														</select>
 														
 
-														<select name="weight">
+														<select name="weight" required>
 															<option value="" selected disabled><?php esc_html_e('Weight in Kilograms', 'classiera'); ?></option>
 															<option value="51"><?php esc_html_e('51', 'classiera'); ?></option>
 															<option value="52"><?php esc_html_e('52', 'classiera'); ?></option>
@@ -964,12 +973,12 @@ get_header(); ?>
 														</select>
 
 														<span class="pre-heading"><?php esc_html_e('Breast Type', 'classiera'); ?>:</span>
-														<select name="breast_type" class="fifth-size pull-right">
+														<select name="breast_type" class="fifth-size pull-right" required>
 															<option value="" disabled selected><?php esc_html_e('Type', 'classiera'); ?></option>
 															<option value="Natural"><?php esc_html_e('Natural', 'classiera'); ?></option>
 															<option value="Enchanced"><?php esc_html_e('Enchanced', 'classiera'); ?></option>
 														</select>
-														<select name="breast_size_cup" class="fifth-size pull-right add-margin">
+														<select name="breast_size_cup" class="fifth-size pull-right add-margin" required>
 															<option value="" disabled selected><?php esc_html_e('Cup', 'classiera'); ?></option>
 															<option value="A"><?php esc_html_e('AA', 'classiera'); ?></option>
 															<option value="A"><?php esc_html_e('A', 'classiera'); ?></option>
@@ -981,7 +990,7 @@ get_header(); ?>
 															<option value="G"><?php esc_html_e('G', 'classiera'); ?></option>
 															<option value="H"><?php esc_html_e('H', 'classiera'); ?></option>
 														</select>
-														<select name="breast_size" class="fifth-size pull-right add-margin">
+														<select name="breast_size" class="fifth-size pull-right add-margin" required>
 															<option value="" disabled selected><?php esc_html_e('Size', 'classiera'); ?></option>
 															<option value="30"><?php esc_html_e('30', 'classiera'); ?></option>
 															<option value="32"><?php esc_html_e('32', 'classiera'); ?></option>
@@ -998,7 +1007,7 @@ get_header(); ?>
 												</div>
 												<div class="col-sm-12 col-lg-6">
 													<div class="form-group">
-														<select name="waist_size">
+														<select name="waist_size" required>
 															<option selected disabled><?php esc_html_e('Waist Size in Inches', 'classiera'); ?></option>
 															<option value="28"><?php esc_html_e('28', 'classiera'); ?>"</option>
 															<option value="30"><?php esc_html_e('30', 'classiera'); ?>"</option>
@@ -1012,7 +1021,7 @@ get_header(); ?>
 															<option value="46"><?php esc_html_e('46', 'classiera'); ?>"</option>
 														</select>
 
-														<select name="hips_size">
+														<select name="hips_size" required>
 															<option value="" selected disabled><?php esc_html_e('Hips Size in Inches', 'classiera'); ?></option>
 															<option value="30"><?php esc_html_e('30', 'classiera'); ?>"</option>
 															<option value="31"><?php esc_html_e('31', 'classiera'); ?>"</option>
@@ -1031,7 +1040,7 @@ get_header(); ?>
 															<option value="44"><?php esc_html_e('44', 'classiera'); ?>"</option>
 														</select>
 
-														<select name="dress_size">
+														<select name="dress_size" required>
 															<option value="" selected disabled><?php esc_html_e('Dress Size', 'classiera'); ?></option>
 															<option value="32 (XXS)"><?php esc_html_e('32 (XXS)', 'classiera'); ?></option>
 															<option value="34 (XS)"><?php esc_html_e('34 (XS)', 'classiera'); ?></option>
@@ -1043,7 +1052,7 @@ get_header(); ?>
 															<option value="46 (XXXL)"><?php esc_html_e('46 (XXXL)', 'classiera'); ?></option>
 														</select>
 
-														<select name="shoe_size">
+														<select name="shoe_size" required>
 															<option value="" selected disabled><?php esc_html_e('Shoe Size (UK Size)', 'classiera'); ?></option>
 															<option value="2"><?php esc_html_e('2', 'classiera'); ?></option>
 															<option value="3"><?php esc_html_e('3', 'classiera'); ?></option>
@@ -1055,7 +1064,7 @@ get_header(); ?>
 															<option value="9"><?php esc_html_e('9', 'classiera'); ?></option>
 														</select>
 
-														<select name="pubic_area">
+														<select name="pubic_area" required>
 															<option selected disabled><?php esc_html_e('Pubic Area', 'classiera'); ?></option>
 															<option value="Natural"><?php esc_html_e('Natural', 'classiera'); ?></option>
 															<option value="Bikini Line Touch Up"><?php esc_html_e('Bikini Line Touch Up', 'classiera'); ?></option>
@@ -1065,7 +1074,7 @@ get_header(); ?>
 															<option value="Shaved"><?php esc_html_e('Shaved', 'classiera'); ?></option>
 														</select>
 
-														<select name="smoker">
+														<select name="smoker" required>
 															<option value="" selected disabled><?php esc_html_e('Are You a Smoker?', 'classiera'); ?></option>
 															<option value="Yes"><?php esc_html_e('Yes', 'classiera'); ?></option>
 															<option value="No"><?php esc_html_e('No', 'classiera'); ?></option>
@@ -1074,17 +1083,17 @@ get_header(); ?>
 													</div>
 												</div>
 											</div>
-					                    </div>
+										</div>
 										<!-- End Step-2 -->
 										<!-- Begin Step-3 -->
-					                    <div id="step-3">
+										<div id="step-3">
 											<div class="row">
-							                    <div class="col-lg-12">
-							                      <h3 class="text-center" style="margin-bottom: 30px;"><?php esc_html_e('Step Three Information', 'classiera'); ?></h3>
-							                    </div>
-							                    <div class="col-sm-12 col-lg-6">
-							                        <div class="form-group">
-														<select name="native_language">
+												<div class="col-lg-12">
+												  <h3 class="text-center" style="margin-bottom: 30px;"><?php esc_html_e('Step Three Information', 'classiera'); ?></h3>
+												</div>
+												<div class="col-sm-12 col-lg-6">
+													<div class="form-group">
+														<select name="native_language" required>
 															<option value="" selected disabled><?php esc_html_e('Native Language', 'classiera'); ?></option>
 															<option value="Irish"><?php esc_html_e('Irish', 'classiera'); ?></option>
 															<option value="British"><?php esc_html_e('British', 'classiera'); ?></option>
@@ -1123,23 +1132,23 @@ get_header(); ?>
 															<option value="French"><?php esc_html_e('French', 'classiera'); ?></option>
 															<option value="Itallian"><?php esc_html_e('Itallian', 'classiera'); ?></option>
 														</select>
-							                        </div>
-							                    </div>
+													</div>
+												</div>
 												<div class="col-sm-12 col-lg-6">
 													<div class="form-group"><!-- Form Group Container -->
-														<select name="private_numbers">
+														<select name="private_numbers" required>
 															<option value="" selected disabled><?php esc_html_e('Accept Private Numbers', 'classiera'); ?></option>
 															<option value="Yes"><?php esc_html_e('Yes', 'classiera'); ?></option>
 															<option value="No"><?php esc_html_e('No', 'classiera'); ?></option>
 														</select>
 
-														<select name="sms_messages">
+														<select name="sms_messages" required>
 															<option selected disabled><?php esc_html_e('Accept SMS Messages', 'classiera'); ?></option>
 															<option value="Yes"><?php esc_html_e('Yes', 'classiera'); ?></option>
 															<option value="No"><?php esc_html_e('No', 'classiera'); ?></option>
 														</select>
 
-														<select name="private_messages">
+														<select name="private_messages" required>
 															<option selected disabled><?php esc_html_e('Respond to Private Messages', 'classiera'); ?></option>
 															<option value="Yes"><?php esc_html_e('Yes', 'classiera'); ?></option>
 															<option value="No"><?php esc_html_e('No', 'classiera'); ?></option>
@@ -1147,23 +1156,23 @@ get_header(); ?>
 													</div><!-- / Form Group Container -->
 												</div>
 											</div>
-						                </div>
+										</div>
 										<!-- End Step-3 -->
 										<!-- Begin Step-4 -->
-					                    <div id="step-4">
+										<div id="step-4">
 											<div class="row">
 												<div class="col-lg-12">
 													<h3 class="text-center" style="margin-bottom: 30px;"><?php esc_html_e('Step Four Information', 'classiera'); ?></h3>
 												</div>
 												<div class="col-sm-12 col-lg-6">
 													<div class="form-group">
-														<select name="disabled_friendly">
+														<select name="disabled_friendly" required>
 															<option value="" selected disabled><?php esc_html_e('Disabled Friendly', 'classiera'); ?></option>
 															<option value="Yes"><?php esc_html_e('Yes', 'classiera'); ?></option>
 															<option value="No"><?php esc_html_e('No', 'classiera'); ?></option>
 														</select>
 
-														<select name="drinks_supplied">
+														<select name="drinks_supplied" required>
 															<option value="" selected disabled><?php esc_html_e('Drinks Supplied', 'classiera'); ?></option>
 															<option value="Yes"><?php esc_html_e('Yes', 'classiera'); ?></option>
 															<option value="No"><?php esc_html_e('No', 'classiera'); ?></option>
@@ -1173,13 +1182,13 @@ get_header(); ?>
 
 												<div class="col-sm-12 col-lg-6">
 													<div class="form-group">
-														<select name="showers_available">
+														<select name="showers_available" required>
 															<option value="" selected disabled><?php esc_html_e('Showers Available', 'classiera'); ?></option>
 															<option value="Yes"><?php esc_html_e('Yes', 'classiera'); ?></option>
 															<option value="No"><?php esc_html_e('No', 'classiera'); ?></option>
 														</select>
 
-														<select name="can_travel">
+														<select name="can_travel" required>
 															<option value="" selected disabled><?php esc_html_e('Available to Travel', 'classiera'); ?></option>
 															<option value="Nationally"><?php esc_html_e('Nationally', 'classiera'); ?></option>
 															<option value="Internationally"><?php esc_html_e('Internationally', 'classiera'); ?></option>
@@ -1189,16 +1198,16 @@ get_header(); ?>
 													</div>
 												</div>
 											</div>
-					                    </div>
+										</div>
 										<!-- End Step-4 -->
-					                    <!-- Begin Step-5 -->
-					                    <div id="step-5">
+										<!-- Begin Step-5 -->
+										<div id="step-5">
 											<div class="row">
-						                        <div class="col-lg-12"><!-- Heading Container -->
-						                            <h3 class="text-center" style="margin-bottom: 30px;"><?php esc_html_e('Step Five Information', 'classiera'); ?></h3><!-- Heading -->
-						                        </div><!--  / Heading Container -->
-						                        <div class="col-sm-12 col-lg-6">
-							                        <!-- post location -->
+												<div class="col-lg-12"><!-- Heading Container -->
+													<h3 class="text-center" style="margin-bottom: 30px;"><?php esc_html_e('Step Five Information', 'classiera'); ?></h3><!-- Heading -->
+												</div><!--  / Heading Container -->
+												<div class="col-sm-12 col-lg-6">
+													<!-- post location -->
 													<?php
 														$classiera_ad_location_remove = $redux_demo['classiera_ad_location_remove'];
 														if($classiera_ad_location_remove == 1){ ?>
@@ -1206,9 +1215,9 @@ get_header(); ?>
 															$args = array(
 																'post_type' => 'countries',
 																'posts_per_page'   => -1,
-																'orderby'          => 'title',
-																'order'            => 'ASC',
-																'post_status'      => 'publish',
+																'orderby'		  => 'title',
+																'order'			=> 'ASC',
+																'post_status'	  => 'publish',
 																'suppress_filters' => false 
 														);
 														$country_posts = get_posts($args);
@@ -1216,7 +1225,7 @@ get_header(); ?>
 														?>
 															<!--Select Country-->
 															<div class="form-group">
-																<select name="post_location" id="post_location">
+																<select name="post_location" id="post_location" required>
 																	<option value="-1" selected disabled><?php esc_html_e('Select Country', 'classiera'); ?></option>
 																	<?php foreach( $country_posts as $country_post ){ ?>
 																		<option value="<?php echo esc_attr( $country_post->ID ); ?>"><?php echo esc_html( $country_post->post_title ); ?></option>
@@ -1245,121 +1254,121 @@ get_header(); ?>
 															</div>
 															<?php } ?>
 															<!--Select City-->
-									                        <!--Address-->
-									                        <?php if($classieraAddress == 1){?>
-									                        <div class="form-group">
-					                                          <label class="col-sm-3 text-left flip"><?php esc_html_e('Address', 'classiera'); ?> : <span>*</span></label>
-					                                          <div class="col-sm-9">
-					                                              <input id="address" type="text" name="address" class="form-control form-control-md" placeholder="<?php esc_html_e('Address or City', 'classiera') ?>" required>
-					                                          </div>
-					                                      	</div>
-									                        <?php } ?>
-									                        <!--Address-->
-							                      	<?php } ?>
-						                        </div>
+															<!--Address-->
+															<?php if($classieraAddress == 1){?>
+															<div class="form-group">
+															  <label class="col-sm-3 text-left flip"><?php esc_html_e('Address', 'classiera'); ?> : <span>*</span></label>
+															  <div class="col-sm-9">
+																  <input id="address" type="text" name="address" class="form-control form-control-md" placeholder="<?php esc_html_e('Address or City', 'classiera') ?>">
+															  </div>
+														  	</div>
+															<?php } ?>
+															<!--Address-->
+												  	<?php } ?>
+												</div>
 											</div>
-					                    </div>
+										</div>
 										<!-- End Step-5 -->
 										<!-- Begin Step-6 -->
-					                    <div id="step-6">
+										<div id="step-6">
 											<div class="row">
-						                       	<div class="col-lg-12">
-						                          <h3 class="text-center" style="margin-bottom: 30px;"><?php esc_html_e('Step Six Information', 'classiera'); ?></h3>
-						                        </div>
-						                        <div class="col-sm-12">
-						                        <?php               
-						                          /*Image Count Check*/
-						                          global $redux_demo;
-						                          global $wpdb;
-						                          $paidIMG = $redux_demo['premium-ads-limit'];
-						                          $regularIMG = $redux_demo['regular-ads-limit'];               
-						                          $current_user = wp_get_current_user();
-						                          $userID = $current_user->ID;
-						                          $result = $wpdb->get_results( "SELECT * FROM {$wpdb->prefix}classiera_plans WHERE user_id = $userID ORDER BY id DESC" );
-						                          $totalAds = 0;
-						                          $usedAds = 0;
-						                          $availableADS = '';
-						                          if(!empty($result)){
-						                            foreach ( $result as $info ){
-						                              $availAds = $info->ads;
-						                              if (is_numeric($availAds)) {
-						                                $totalAds += $info->ads;
-						                                $usedAds += $info->used;
-						                              }
-						                            }
-						                          }
-						                          $availableADS = $totalAds-$usedAds;             
-						                          if($availableADS == "0" || empty($result)){
-						                            $imageLimit = $regularIMG;
-						                          }else{
-						                            $imageLimit = $paidIMG;
-						                          }
-						                          if($currentRole == "administrator"){
-						                            $imageLimit = $paidIMG;
-						                          }
-						                        if($imageLimit != 0){ 
-						                        ?>
-						                        <div class="form-main-section media-detail">
-						                          <div class="form-group">
+											   	<div class="col-lg-12">
+												  <h3 class="text-center" style="margin-bottom: 30px;"><?php esc_html_e('Step Six Information', 'classiera'); ?></h3>
+												</div>
+												<div class="col-sm-12">
+												<?php			   
+												  /*Image Count Check*/
+												  global $redux_demo;
+												  global $wpdb;
+												  $paidIMG = $redux_demo['premium-ads-limit'];
+												  $regularIMG = $redux_demo['regular-ads-limit'];			   
+												  $current_user = wp_get_current_user();
+												  $userID = $current_user->ID;
+												  $result = $wpdb->get_results( "SELECT * FROM {$wpdb->prefix}classiera_plans WHERE user_id = $userID ORDER BY id DESC" );
+												  $totalAds = 0;
+												  $usedAds = 0;
+												  $availableADS = '';
+												  if(!empty($result)){
+													foreach ( $result as $info ){
+													  $availAds = $info->ads;
+													  if (is_numeric($availAds)) {
+														$totalAds += $info->ads;
+														$usedAds += $info->used;
+													  }
+													}
+												  }
+												  $availableADS = $totalAds-$usedAds;			 
+												  if($availableADS == "0" || empty($result)){
+													$imageLimit = $regularIMG;
+												  }else{
+													$imageLimit = $paidIMG;
+												  }
+												  if($currentRole == "administrator"){
+													$imageLimit = $paidIMG;
+												  }
+												if($imageLimit != 0){ 
+												?>
+												<div class="form-main-section media-detail">
+												  <div class="form-group">
 														<div class="col-lg-12">
 															<div id="croppic" style="margin: 100px auto;"></div>
 														</div>
-						                              <div class="col-sm-12">
-						                                  <div class="classiera-dropzone-heading">
-						                                      <div class="classiera-dropzone-heading-text">
-						                                          <p><?php esc_html_e('Select files to Upload', 'classiera') ?></p>
-						                                          <p><?php esc_html_e('You can add multiple images. Ads With photo get 50% more Responses', 'classiera') ?></p>
-						                                          <p class="limitIMG"><?php esc_html_e('You can upload', 'classiera') ?>&nbsp;<?php echo esc_attr( $imageLimit ); ?>&nbsp;<?php esc_html_e('Images maximum.', 'classiera') ?></p>
-						                                      </div>
-						                                  </div>
-						                                  <!-- HTML heavily inspired by http://blueimp.github.io/jQuery-File-Upload/ -->
-						                                  <div id="mydropzone" class="classiera-image-upload clearfix" data-maxfile="<?php echo esc_attr( $imageLimit ); ?>">
-						                                    <!--Imageloop-->
-						                                    <?php 
-						                                    for ($i = 0; $i < $imageLimit; $i++){
-						                                    ?>
-						                                      <div class="classiera-image-box">
-						                                          <div class="classiera-upload-box">
-						                                              <input name="image-count" type="hidden" value="<?php echo esc_attr( $imageLimit ); ?>" />
-						                                              <input class="classiera-input-file imgInp" id="imgInp<?php echo esc_attr( $i ); ?>" type="file" name="upload_attachment[]">
-						                                              <label class="img-label" for="imgInp<?php echo esc_attr( $i ); ?>"><i class="fas fa-plus-square"></i></label>
-						                                              <div class="classiera-image-preview">
-						                                                  <img class="my-image" src=""/>
-						                                                  <span class="remove-img"><i class="fas fa-times-circle"></i></span>
-						                                              </div>
-						                                          </div>
-						                                      </div>
-						                                    <?php } ?>
-						                                     <input type="hidden" name="classiera_featured_img" id="classiera_featured_img" value="0">
-						                                     <input type="hidden" name="images_verified" id="images_verified" value="0">
-						                                    <!--Imageloop-->
-						                                  </div>
-						                                  <?php 
-						                                  $classiera_video_postads = $redux_demo['classiera_video_postads'];
-						                                  if($classiera_video_postads == 1){
-						                                  ?>
-						                                  <div class="iframe">
-						                                      <div class="iframe-heading">
-						                                          <i class="fa fa-video-camera"></i>
-						                                          <span><?php esc_html_e('Put here iframe or video url.', 'classiera') ?></span>
-						                                      </div>
-						                                      <textarea class="form-control" name="video" id="video-code" placeholder="<?php esc_html_e('Put here iframe or video url.', 'classiera') ?>"></textarea>
-						                                      <div class="help-block">
-						                                          <p><?php esc_html_e('Add iframe or video URL (iframe 710x400) (youtube, vimeo, etc)', 'classiera') ?></p>
-						                                      </div>
-						                                  </div>
-						                                  <?php } ?>
-						                              </div>
-						                          </div>
-						                        </div>
-						                      	<?php } ?>
-						                      	<!-- add photos and media -->
-						                        </div>
+													  <div class="col-sm-12">
+														  <div class="classiera-dropzone-heading">
+															  <div class="classiera-dropzone-heading-text">
+																  <p><?php esc_html_e('Select files to Upload', 'classiera') ?></p>
+																  <p><?php esc_html_e('You can add multiple images. Ads With photo get 50% more Responses', 'classiera') ?></p>
+																  <p class="limitIMG"><?php esc_html_e('You can upload', 'classiera') ?>&nbsp;<?php echo esc_attr( $imageLimit ); ?>&nbsp;<?php esc_html_e('Images maximum.', 'classiera') ?></p>
+															  </div>
+														  </div>
+														  <!-- HTML heavily inspired by http://blueimp.github.io/jQuery-File-Upload/ -->
+														  <div id="mydropzone" class="classiera-image-upload clearfix" data-maxfile="<?php echo esc_attr( $imageLimit ); ?>">
+															<!--Imageloop-->
+															<?php 
+															for ($i = 0; $i < $imageLimit; $i++){
+															?>
+															  <div class="classiera-image-box">
+																  <div class="classiera-upload-box">
+																	  <input name="image-count" type="hidden" value="<?php echo esc_attr( $imageLimit ); ?>" />
+																	  <input class="classiera-input-file imgInp" id="imgInp<?php echo esc_attr( $i ); ?>" type="file" name="upload_attachment[]">
+																	  <label class="img-label" for="imgInp<?php echo esc_attr( $i ); ?>"><i class="fas fa-plus-square"></i></label>
+																	  <div class="classiera-image-preview">
+																		  <img class="my-image" src=""/>
+																		  <span class="remove-img"><i class="fas fa-times-circle"></i></span>
+																	  </div>
+																  </div>
+															  </div>
+															<?php } ?>
+															 <input type="hidden" name="classiera_featured_img" id="classiera_featured_img" value="0">
+															 <input type="hidden" name="images_verified" id="images_verified" value="0">
+															<!--Imageloop-->
+														  </div>
+														  <?php 
+														  $classiera_video_postads = $redux_demo['classiera_video_postads'];
+														  if($classiera_video_postads == 1){
+														  ?>
+														  <div class="iframe">
+															  <div class="iframe-heading">
+																  <i class="fa fa-video-camera"></i>
+																  <span><?php esc_html_e('Put here iframe or video url.', 'classiera') ?></span>
+															  </div>
+															  <textarea class="form-control" name="video" id="video-code" placeholder="<?php esc_html_e('Put here iframe or video url.', 'classiera') ?>"></textarea>
+															  <div class="help-block">
+																  <p><?php esc_html_e('Add iframe or video URL (iframe 710x400) (youtube, vimeo, etc)', 'classiera') ?></p>
+															  </div>
+														  </div>
+														  <?php } ?>
+													  </div>
+												  </div>
+												</div>
+											  	<?php } ?>
+											  	<!-- add photos and media -->
+												</div>
 											</div>
-					                    </div>
+										</div>
 										<!-- End Step-6 -->
 										<!-- Begin Step-7 -->
-					                    <div id="step-7">
+										<div id="step-7">
 											<div class="row">
 
 												<div class="col-sm-12">
@@ -1416,29 +1425,29 @@ get_header(); ?>
 												</div>
 
 											</div>
-					                    </div>
+										</div>
 										<!-- End Step-7 -->
-					                    <!-- Begin Step-8 -->
-					                    <div id="step-8">
+										<!-- Begin Step-8 -->
+										<div id="step-8">
 											<div class="row">
 
 												<div class="col-lg-12">
 													<h3 class="text-center" style="margin-bottom: 30px;"><?php esc_html_e('Step Eight Information', 'classiera'); ?></h3>
 												</div>
 												
-					                       		<div class="col-sm-12 col-lg-6">
-							                        <!--Select Ads Type-->
-							                        <?php 
-							                        $totalAds = '';
-							                        $usedAds = '';
-							                        $availableADS = '';
-							                        $planCount = 0;           
-							                        $regular_ads = $redux_demo['regular-ads'];
-							                        $classieraRegularAdsDays = $redux_demo['ad_expiry'];
-							                        $current_user = wp_get_current_user();
-							                        $userID = $current_user->ID;
-							                        $result = $wpdb->get_results( "SELECT * FROM {$wpdb->prefix}classiera_plans WHERE user_id = $userID ORDER BY id DESC" );
-							                        ?>
+										   		<div class="col-sm-12 col-lg-6">
+													<!--Select Ads Type-->
+													<?php 
+													$totalAds = '';
+													$usedAds = '';
+													$availableADS = '';
+													$planCount = 0;		   
+													$regular_ads = $redux_demo['regular-ads'];
+													$classieraRegularAdsDays = $redux_demo['ad_expiry'];
+													$current_user = wp_get_current_user();
+													$userID = $current_user->ID;
+													$result = $wpdb->get_results( "SELECT * FROM {$wpdb->prefix}classiera_plans WHERE user_id = $userID ORDER BY id DESC" );
+													?>
 														
 															
 													<select name="ads_length" id="ads_length" class="form-control form-control-md" required>
@@ -1448,17 +1457,17 @@ get_header(); ?>
 														<option value="3"><?php esc_html_e('30 Days', 'classiera') ?></option>
 													</select>
 
-				                            
-					                                <input type="hidden" class="regular_plan_id" name="regular_plan_id" value="0">
-					                                <?php wp_nonce_field('post_nonce', 'post_nonce_field'); ?>
-					                                <input type="hidden" name="submitted" id="submitted" value="true">
-						                       	</div><!-- col-sm-12 -->
+											
+													<input type="hidden" class="regular_plan_id" name="regular_plan_id" value="0">
+													<?php wp_nonce_field('post_nonce', 'post_nonce_field'); ?>
+													<input type="hidden" name="submitted" id="submitted" value="true">
+											   	</div><!-- col-sm-12 -->
 
-						                       	<div class="col-sm-12 col-lg-6"><!-- Cost of Advert -->
-						                       		<div class="form-group">
-						                       			<div class="cost-container">
+											   	<div class="col-sm-12 col-lg-6"><!-- Cost of Advert -->
+											   		<div class="form-group">
+											   			<div class="cost-container">
 
-							                       			<?php
+												   			<?php
 															$uw_balance=get_user_meta(get_current_user_id(),'_uw_balance',true);
 															$standard_top_sec_price=$redux_demo['standard-top-sec-price'];
 															$count_stand_top=count($standard_top_sec_price);
@@ -1507,52 +1516,52 @@ get_header(); ?>
 															<input type="hidden" id="days_to_expire" name="days_to_expire" value="1">
 															<!--Select Ads Type-->
 														</div>
-						                       		</div>
-						                       	</div><!-- Cost of advert -->
+											   		</div>
+											   	</div><!-- Cost of advert -->
 
-						                       	<div class="col-sm-12 col-lg-6 tcs-container">
-						                       		<button type="button" class="btn btn-primary extra-padding post-advert-btn" id="beforeupdatecheck" disabled="false" data-toggle="modal" data-target="#myModal"><?php esc_html_e('Post Advert', 'classiera') ?></button>
-					                       	        <p class="tcs-info"><?php esc_html_e('By clicking "Post Advert", you agree to our', 'classiera') ?>
-					                       	        	<a href="<?php echo esc_url($termsandcondition); ?>" target="_blank"><?php esc_html_e('Terms of Use', 'classiera') ?></a>
-					                       	        	<?php esc_html_e('and acknowledge that you are the rightful owner of this item', 'classiera') ?>
-					                       	        </p>
-						                       	</div>
+											   	<div class="col-sm-12 col-lg-6 tcs-container">
+											   		<button type="button" class="btn btn-primary extra-padding post-advert-btn" id="beforeupdatecheck" disabled="false" data-toggle="modal" data-target="#myModal"><?php esc_html_e('Post Advert', 'classiera') ?></button>
+										   			<p class="tcs-info"><?php esc_html_e('By clicking "Post Advert", you agree to our', 'classiera') ?>
+										   				<a href="<?php echo esc_url($termsandcondition); ?>" target="_blank"><?php esc_html_e('Terms of Use', 'classiera') ?></a>
+										   				<?php esc_html_e('and acknowledge that you are the rightful owner of this item', 'classiera') ?>
+										   			</p>
+											   	</div>
 
-						                       	<!-- Credits modal -->
-						                       	<div id="myModal" class="modal fade" role="dialog">
-						                       		<div class="modal-dialog">
-						                       			<div class="modal-content">
-						                       				<div class="modal-header">
-						                       					<button type="button" class="close" data-dismiss="modal">&times;</button>
-						                       					<h4 class="modal-title"></h4>
-						                       				</div>
-						                       				<div class="modal-body">
-						                       					<p class="modal-body-info"></p>
-						                       				</div>
-						                       				<div class="modal-footer">
-						                       				</div>
-						                       			</div>
-						                       		</div>
-						                       	</div>
-						                       	<!-- Credits Modal -->
+											   	<!-- Credits modal -->
+											   	<div id="myModal" class="modal fade" role="dialog">
+											   		<div class="modal-dialog">
+											   			<div class="modal-content">
+											   				<div class="modal-header">
+											   					<button type="button" class="close" data-dismiss="modal">&times;</button>
+											   					<h4 class="modal-title"></h4>
+											   				</div>
+											   				<div class="modal-body">
+											   					<p class="modal-body-info"></p>
+											   				</div>
+											   				<div class="modal-footer">
+											   				</div>
+											   			</div>
+											   		</div>
+											   	</div>
+											   	<!-- Credits Modal -->
 
 
-						                   	</div><!-- Row -->
-					                    </div>
+										   	</div><!-- Row -->
+										</div>
 										<!-- End Step-8 -->
-					                </div>
-					            </div><!-- / Smart Wizard Content -->
+									</div>
+								</div><!-- / Smart Wizard Content -->
 
 								<div class="col-sm-12">
-						            <div class="progress" style="display: none;">
-						              <div id="current-progress" class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="0%">
-						                <span class="sr-only">0% Complete</span>
-						              </div>
-						            </div>
-					            </div>
+									<div class="progress" style="display: none;">
+									  <div id="current-progress" class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="0%">
+										<span class="sr-only">0% Complete</span>
+									  </div>
+									</div>
+								</div>
 
-				        	</form>
-				        </div>
+							</form>
+						</div>
 						<!-- / Smart Wizard Content -->
 
 						<!--submit-post-->
@@ -1573,97 +1582,145 @@ get_header(); ?>
 
 			// Toolbar extra buttons
 			var btnFinish = $('<button></button>').text('Finish')
-			                                 .addClass('btn btn-primary')
-			                                 .on('click', function(){
-			                                        if( !$(this).hasClass('disabled')){
-			                                            var elmForm = $("#myForm");
-			                                            if(elmForm){
-			                                                elmForm.validator('validate');
-			                                                var elmErr = elmForm.find('.has-error');
-			                                                if(elmErr && elmErr.length > 0){
-			                                                    alert('Oops we still have error in the form');
-			                                                    return false;
-			                                                }else{
-			                                                    alert('Great! we are ready to submit form');
-			                                                    elmForm.submit();
-			                                                    return false;
-			                                                }
-			                                            }
-			                                        }
-			                                    });
+							.addClass('btn btn-primary')
+							.on('click', function(){
+								if( !$(this).hasClass('disabled')){
+									var elmForm = $("#myForm");
+									if(elmForm){
+										elmForm.validator('validate');
+										var elmErr = elmForm.find('.has-error');
+										if(elmErr && elmErr.length > 0){
+											alert('Oops we still have error in the form');
+											return false;
+										}else{
+											alert('Great! we are ready to submit form');
+											elmForm.submit();
+											return false;
+										}
+									}
+								}
+							});
 
 			// $('#smartwizard').smartWizard("reset");
 
-		    $('#smartwizard').smartWizard({
-			      transitionEffect: 'fade',
-			      toolbarButtonPosition: 'right',
-			      autoAdjustHeight: true,
-			      useURLhash: true,
-			      anchorSettings: {
-		                anchorClickable: true, // Enable/Disable anchor navigation
-		                enableAllAnchors: true, // Activates all anchors clickable all times
-		                markDoneStep: true, // add done css
-		                enableAnchorOnDoneStep: true // Enable/Disable the done steps navigation
-		            },  
+			$('#smartwizard').smartWizard({
+				transitionEffect: 'fade',
+				toolbarButtonPosition: 'right',
+				autoAdjustHeight: true,
+				useURLhash: true,
+				anchorSettings: {
+					anchorClickable: true, // Enable/Disable anchor navigation
+					enableAllAnchors: true, // Activates all anchors clickable all times
+					markDoneStep: true, // add done css
+					enableAnchorOnDoneStep: true // Enable/Disable the done steps navigation
+				},  
 
-			      toolbarSettings: {
-			        toolbarPosition: 'bottom', // none, top, bottom, both
-			        toolbarButtonPosition: 'right', // left, right
-			        toolbarExtraButtons: [btnFinish],
-			        showNextButton: true, // show/hide a Next button
-			      }
-			    });
+				toolbarSettings: {
+					toolbarPosition: 'bottom', // none, top, bottom, both
+					toolbarButtonPosition: 'right', // left, right
+					toolbarExtraButtons: [btnFinish],
+					showNextButton: true, // show/hide a Next button
+				}
+			});
 
-		    	$('#checkbox3').click(function() {
-		    	    if ($(this).is(':checked')) {
-		    	        $('.price-fields').show();
-		    	        $('.price-info').hide();                
-		    	    } else {
-		    	        $('.price-fields').hide();
-		    	        $('.price-info').show();           
-		    	    }
-		    	});
+			$('#checkbox3').click(function() {
+				if ($(this).is(':checked')) {
+					$('.price-fields').show();
+					$('.price-info').hide();
+				} else {
+					$('.price-fields').hide();
+					$('.price-info').show();
+				}
+			});
 
-		    	// $('#fav-tags').selectize({
-		    	// 	plugins: ['remove_button'],
-		    	// 	persist: false,
-	    		//     createOnBlur: true,
-	    		//     create: true
-		    	// });
+			// $('#fav-tags').selectize({
+			// 	plugins: ['remove_button'],
+			// 	persist: false,
+			//	 createOnBlur: true,
+			//	 create: true
+			// });
 		});
-
+	function customValidate(_this){
+		if( _this.is("select")){
+			if( $(_this).find("option:selected").length == 0)
+				return false;
+			if( $(_this).find("option:selected").is("[disabled]"))
+				return false;
+		} else if( _this.is("input")){
+			if( _this.is("[type=text]") || _this.is("[type=password]") || _this.is("[type=number]")){
+				if( _this.val() == "")
+					return false;
+			}
+		} else if( _this.is("textarea")){
+			if( _this.val() == "")
+				return false;
+		}
+		return true;
+	}
+	$("input[required]").change(function(){
+		if( $(this).val() == ""){
+			$(this).addClass("emptyRequire");
+		} else{
+			$(this).removeClass("emptyRequire");
+		}
+	});
+	$("textarea[required]").change(function(){
+		if( $(this).val() == ""){
+			$(this).addClass("emptyRequire");
+		} else{
+			$(this).removeClass("emptyRequire");
+		}
+	});
+	$("select[required]").change(function(){
+		if( $(this).find("option:selected").is("[disabled]")){
+			$(this).addClass("emptyRequire");
+		} else{
+			$(this).removeClass("emptyRequire");
+		}
+	});
 	$("#smartwizard").on("leaveStep", function(e, anchorObject, stepNumber, stepDirection) {
-	    var elmForm = $("#form-step-" + stepNumber);
-	    // stepDirection === 'forward' :- this condition allows to do the form validation
-	    // only on forward navigation, that makes easy navigation on backwards still do the validation when going next
-	    if(stepDirection === 'forward' && elmForm){
-	        elmForm.validator('validate');
-	        var elmErr = elmForm.children('.has-error');
-	        if(elmErr && elmErr.length > 0){
-	            // Form validation failed
-	            return false;
-	        }
-	    }
-	    return true;
+		// var elmForm = $("#form-step-" + stepNumber);
+		var elmForm = $("#step-" + (stepNumber*1+1));
+		// stepDirection === 'forward' :- this condition allows to do the form validation
+		// only on forward navigation, that makes easy navigation on backwards still do the validation when going next
+		if(stepDirection === 'forward' && elmForm){
+			// elmForm.validator();
+			var arrReqElems = elmForm.find('input,textarea,select').filter('[required]');
+			var result = true;
+			for( var i = 0; i < arrReqElems.length; i++){
+				var curReqElem = arrReqElems.eq(i);
+				if( customValidate(curReqElem) == false){
+					curReqElem.addClass("emptyRequire");
+					result = false;
+				}
+			}
+			return result;
+			// var elmErr = elmForm.find('.has-error');
+			// if(elmErr && elmErr.length > 0){
+			//	 // Form validation failed
+			//	 return false;
+			// }
+		}
+		return true;
 	});
 
 	jQuery(document).ready(function(){
-	      var cropperOptions = {
-// 	      		uploadUrl:'http://localhost:8888/ahv1/wp-content/themes/classiera-child/img-process.php',
-// 	      		cropUrl:'http://localhost:8888/ahv1/wp-content/themes/classiera-child/img-process.php',
+		  var cropperOptions = {
+// 		  		uploadUrl:'http://localhost:8888/ahv1/wp-content/themes/classiera-child/img-process.php',
+// 		  		cropUrl:'http://localhost:8888/ahv1/wp-content/themes/classiera-child/img-process.php',
 				uploadUrl:'/ahv/v1/wp-content/themes/classiera-child/img-process.php',
-	      		cropUrl:'/ahv/v1/wp-content/themes/classiera-child/img-process.php',
-	      		outputUrlId: 'get_img_url',
-	      		imgEyecandy:true,
-    			zoomFactor:10,
+		  		cropUrl:'/ahv/v1/wp-content/themes/classiera-child/img-process.php',
+		  		outputUrlId: 'get_img_url',
+		  		imgEyecandy:true,
+				zoomFactor:10,
 				doubleZoomControls:false,
 				rotateFactor:10,
 				rotateControls:false,
 				processInline:false,
-    		}
-    				
-    		
-    		var cropperHeader = new Croppic('croppic', cropperOptions);
+			}
+					
+			
+			var cropperHeader = new Croppic('croppic', cropperOptions);
 	});
 
 </script>

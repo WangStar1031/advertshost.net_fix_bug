@@ -291,6 +291,7 @@
 		},
 		afterUpload: function(data){
             var that = this;
+            debugger;
 
            	response = typeof data =='object' ? data : jQuery.parseJSON(data);
 
@@ -612,17 +613,17 @@
 			that.showLoader();
 	
 			var cropData = {
-					imgUrl:that.imgUrl,
-					imgInitW:that.imgInitW,
-					imgInitH:that.imgInitH,
-					imgW:that.imgW,
-					imgH:that.imgH,
-					imgY1:Math.abs( parseInt( that.img.css('top') ) ),
-					imgX1:Math.abs( parseInt( that.img.css('left') ) ),
-					cropH:that.objH,
-					cropW:that.objW,
-					rotation:that.actualRotation
-				};
+				imgUrl:that.imgUrl,
+				imgInitW:that.imgInitW,
+				imgInitH:that.imgInitH,
+				imgW:that.imgW,
+				imgH:that.imgH,
+				imgY1:Math.abs( parseInt( that.img.css('top') ) ),
+				imgX1:Math.abs( parseInt( that.img.css('left') ) ),
+				cropH:that.objH,
+				cropW:that.objW,
+				rotation:that.actualRotation
+			};
 			
 			var formData;
 			
