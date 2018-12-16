@@ -1297,7 +1297,7 @@ get_header(); ?>
 													  }
 													}
 												  }
-												  $availableADS = $totalAds-$usedAds;			 
+												  $availableADS = $totalAds-$usedAds;
 												  if($availableADS == "0" || empty($result)){
 													$imageLimit = $regularIMG;
 												  }else{
@@ -1559,7 +1559,6 @@ get_header(); ?>
 									  </div>
 									</div>
 								</div>
-
 							</form>
 						</div>
 						<!-- / Smart Wizard Content -->
@@ -1679,12 +1678,9 @@ get_header(); ?>
 		}
 	});
 	$("#smartwizard").on("leaveStep", function(e, anchorObject, stepNumber, stepDirection) {
-		// var elmForm = $("#form-step-" + stepNumber);
 		var elmForm = $("#step-" + (stepNumber*1+1));
-		// stepDirection === 'forward' :- this condition allows to do the form validation
 		// only on forward navigation, that makes easy navigation on backwards still do the validation when going next
 		if(stepDirection === 'forward' && elmForm){
-			// elmForm.validator();
 			var arrReqElems = elmForm.find('input,textarea,select').filter('[required]');
 			var result = true;
 			for( var i = 0; i < arrReqElems.length; i++){
@@ -1695,11 +1691,6 @@ get_header(); ?>
 				}
 			}
 			return result;
-			// var elmErr = elmForm.find('.has-error');
-			// if(elmErr && elmErr.length > 0){
-			//	 // Form validation failed
-			//	 return false;
-			// }
 		}
 		return true;
 	});
@@ -1709,7 +1700,7 @@ get_header(); ?>
 // 		  		uploadUrl:'http://localhost:8888/ahv1/wp-content/themes/classiera-child/img-process.php',
 // 		  		cropUrl:'http://localhost:8888/ahv1/wp-content/themes/classiera-child/img-process.php',
 				uploadUrl:'/ahv/v1/wp-content/themes/classiera-child/img-process.php',
-		  		cropUrl:'/ahv/v1/wp-content/themes/classiera-child/img-process.php',
+		  		cropUrl:'/ahv/v1/wp-content/themes/classiera-child/img-crop.php',
 		  		outputUrlId: 'get_img_url',
 		  		imgEyecandy:true,
 				zoomFactor:10,
@@ -1718,8 +1709,6 @@ get_header(); ?>
 				rotateControls:false,
 				processInline:false,
 			}
-					
-			
 			var cropperHeader = new Croppic('croppic', cropperOptions);
 	});
 

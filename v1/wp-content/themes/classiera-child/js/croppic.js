@@ -291,7 +291,6 @@
 		},
 		afterUpload: function(data){
             var that = this;
-            debugger;
 
            	response = typeof data =='object' ? data : jQuery.parseJSON(data);
 
