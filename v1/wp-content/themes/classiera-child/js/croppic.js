@@ -316,7 +316,7 @@
 				});
                                 
                 if (that.options.onAfterImgUpload) that.options.onAfterImgUpload.call(that);
-
+                $("#croppic").removeClass("emptyRequire");
             }
 
             if (response.status == 'error') {

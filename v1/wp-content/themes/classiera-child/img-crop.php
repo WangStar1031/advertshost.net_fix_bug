@@ -92,7 +92,7 @@ if( !imagecopyresampled($_imgDst, $_imgSrc, 0, 0, $_imgX1 * $_scaleW, $_imgY1 * 
 		"status" => 'error',
 		"message" => 'Error on cropping image.'
 	);
-	print_r($response);
+	print json_encode($response);
 	exit();
 }
 
@@ -115,5 +115,5 @@ $response = array(
 	"height" => $_cropH,
 	"dstImgPath" => $dstImgPath
 );
-print_r($response);
+print json_encode($response);
 ?>

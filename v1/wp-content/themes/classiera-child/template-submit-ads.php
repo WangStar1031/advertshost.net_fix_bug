@@ -1311,6 +1311,7 @@ get_header(); ?>
 												<div class="form-main-section media-detail">
 												  <div class="form-group">
 														<div class="col-lg-12">
+															<input type="hidden" name="croppedImgUrl" id="croppedImgUrl">
 															<div id="croppic" style="margin: 100px auto;"></div>
 														</div>
 													  <div class="col-sm-12">
@@ -1581,24 +1582,29 @@ get_header(); ?>
 
 			// Toolbar extra buttons
 			var btnFinish = $('<button></button>').text('Finish')
-							.addClass('btn btn-primary')
-							.on('click', function(){
-								if( !$(this).hasClass('disabled')){
-									var elmForm = $("#myForm");
-									if(elmForm){
-										elmForm.validator('validate');
-										var elmErr = elmForm.find('.has-error');
-										if(elmErr && elmErr.length > 0){
-											alert('Oops we still have error in the form');
-											return false;
-										}else{
-											alert('Great! we are ready to submit form');
-											elmForm.submit();
-											return false;
-										}
-									}
+					.addClass('btn btn-primary')
+					.on('click', function(){
+						if( !$(this).hasClass('disabled')){
+							var elmForm = $("#primaryPostForm");
+							if(elmForm){
+								// elmForm.validator('validate');
+								// var elmErr = elmForm.find('.has-error');
+								// if(elmErr && elmErr.length > 0){
+								// 	alert('Oops we still have error in the form');
+								// 	return false;
+								// }else{
+									// alert('Great! we are ready to submit form');
+								var r = confirm("Great! we are ready to submit form!\nAre you sure continue to submit?");
+								if (r == true) {
+									elmForm.submit();
+								} else {
+									return false;
 								}
-							});
+								// 	return false;
+								// }
+							}
+						}
+					});
 
 			// $('#smartwizard').smartWizard("reset");
 
@@ -1680,19 +1686,38 @@ get_header(); ?>
 	$("#smartwizard").on("leaveStep", function(e, anchorObject, stepNumber, stepDirection) {
 		var elmForm = $("#step-" + (stepNumber*1+1));
 		// only on forward navigation, that makes easy navigation on backwards still do the validation when going next
-		if(stepDirection === 'forward' && elmForm){
-			var arrReqElems = elmForm.find('input,textarea,select').filter('[required]');
-			var result = true;
-			for( var i = 0; i < arrReqElems.length; i++){
-				var curReqElem = arrReqElems.eq(i);
-				if( customValidate(curReqElem) == false){
-					curReqElem.addClass("emptyRequire");
-					result = false;
+		if( stepNumber == 5){ // step 6
+			var arrCroppedImgs = elmForm.find(".croppedImg");
+			if( arrCroppedImgs.length == 0){
+				$("#croppic").addClass("emptyRequire");
+				return false;
+			}
+			var imgCropped = arrCroppedImgs.eq(0);
+			$("#croppedImgUrl").val(imgCropped.attr("src"));
+			var arrThumbImgInputs = $("input.classiera-input-file.imgInp");
+			var isUploaded = false;
+			for( var i = 0; i < arrThumbImgInputs.length; i++){
+				var curInput = arrThumbImgInputs.eq(i);
+				if( curInput.val() != ""){
+					isUploaded = true;
 				}
 			}
-			return result;
+			return isUploaded;
+		} else{
+			if(stepDirection === 'forward' && elmForm){
+				var arrReqElems = elmForm.find('input,textarea,select').filter('[required]');
+				var result = true;
+				for( var i = 0; i < arrReqElems.length; i++){
+					var curReqElem = arrReqElems.eq(i);
+					if( customValidate(curReqElem) == false){
+						curReqElem.addClass("emptyRequire");
+						result = false;
+					}
+				}
+				return result;
+			}
+			return true;
 		}
-		return true;
 	});
 
 	jQuery(document).ready(function(){
