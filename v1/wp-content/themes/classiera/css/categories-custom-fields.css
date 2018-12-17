@@ -1,0 +1,59 @@
+#select-author {
+	min-width: 200px;
+}
+
+.wrap-content {
+	display: none;
+}
+
+.wrap-content fieldset.input-full-width {
+	float: left;
+	width: 100%;
+	margin: 20px 0;
+}
+
+.badge_item {
+	float: left;
+	width: 100%;
+	margin: 10px 0;
+}
+#setting-error-tgmpa{	
+	margin-top:1%;
+	margin-bottom:20px;
+}
+div.redux-error{display:none !important;}
+.updated{display:none !important;}
+.redux-notice{display:none !important;}
+.maintable{width:100%; border-spacing: 0px;}
+.eratd{width:25%;text-align:left;}
+.eratd2{width:10%;text-align:left;}
+.eratd{width:35%;text-align:left;}
+.eratd3{width:46%;text-align:left;}
+.eratd4{width:15%;text-align:left;}
+.badge_name,.options_c{width: 97%;height: 40px;}
+.maintable th,
+.maintable td{border:0px;color: #444;padding: 8px;font-family: "Open Sans",sans-serif; font-size:14px;font-weight: 400;}
+.maintable th:first-child,
+.badge_item .maintable td:first-child{ border-left: 1px solid #e1e1e1;}
+.maintable th:last-child,
+.badge_item .maintable td:last-child{ border-right: 1px solid #e1e1e1;}
+.custcathead{background-color:#fff;}
+.custcathead th{border-top: 1px solid #e1e1e1;border-bottom: 1px solid #e1e1e1;}
+.wrap-content .badge_item:nth-child(even){background-color: #f9f9f9;margin: 0px 0;}
+.wrap-content .badge_item:nth-child(odd){background-color: #fff;margin: 0px 0;}
+.colorpicker {   
+    bottom: -40px;
+    display: none;
+    font-family: Arial,Helvetica,sans-serif;
+    height: 176px;
+    left: -180px;
+    overflow: hidden;
+    position: absolute;
+    width: 356px;
+}
+.redux-container-sorter ul{
+	width:200px !important;
+}
+#wpfooter{
+	position:relative !important;
+}

@@ -1,0 +1,14 @@
+<wpml-config>
+    <custom-types>
+        <custom-type translate="1">blog</custom-type>
+        <custom-type translate="1">price_plan</custom-type>
+        <custom-type translate="1">countries</custom-type>
+		<custom-type translate="1">states</custom-type>
+        <custom-type translate="1">cities</custom-type>
+    </custom-types>    
+    <taxonomies>
+        <taxonomy translate="1">blog_category</taxonomy>
+    </taxonomies> 
+</wpml-config>
+
+

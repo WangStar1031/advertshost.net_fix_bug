@@ -1,0 +1,9 @@
+UPDATE `wp_posts` SET `post_type` = 'post' WHERE `post_type` = 'ad_listing';
+UPDATE wp_term_taxonomy SET taxonomy='category' WHERE taxonomy='ad_cat'
+UPDATE wp_term_taxonomy SET taxonomy='post_tag' WHERE taxonomy='ad_tag'
+UPDATE `wp_postmeta` SET `meta_key` = 'item-condition' WHERE `meta_key` = 'cp_conditie'
+UPDATE `wp_postmeta` SET `meta_key` = 'post_price' WHERE `meta_key` = 'cp_price'
+UPDATE `wp_postmeta` SET `meta_key` = 'post_phone' WHERE `meta_key` = 'cp_telefoonnummer'
+UPDATE `wp_postmeta` SET `meta_key` = 'post_address' WHERE `meta_key` = 'cp_street'
+UPDATE `wp_postmeta` SET `post_city` = 'post_city' WHERE `meta_key` = 'cp_city'
+UPDATE `wp_postmeta` SET `post_city` = 'wpb_post_views_count' WHERE `meta_key` = 'cp_total_count'
