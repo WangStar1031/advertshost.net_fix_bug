@@ -107,13 +107,40 @@ switch($type){
 	default : $retVal = false; break;
 }
 
-
-$response = array(
-	"status" => 'success',
-	"url" => $baseDir = dirname($_SERVER['REQUEST_URI']) . "/temp/" . $path_parts['filename'] . "_crop." . $type,
-	"width" => $_cropW,
-	"height" => $_cropH,
-	"dstImgPath" => $dstImgPath
-);
+$prefix = "";
+switch($type){
+	case 'bmp': $prefix = "data:image/bmp;base64,"; break;
+	case 'gif': $prefix = "data:image/gif;base64,"; break;
+	case 'jpg': $prefix = "data:image/jpg;base64,"; break;
+	case 'png': $prefix = "data:image/png;base64,"; break;
+	default : $prefix = ""; break;
+}
+// "data:image/png;base64,"
+if( $prefix == ""){
+	$response = array(
+		"status" => 'error',
+		"message" => "type error."
+	);
+} else{
+	ob_start();
+	switch($type){
+		case 'bmp': imagewbmp($_imgDst); break;
+		case 'gif': imagegif($_imgDst); break;
+		case 'jpg': imagejpeg($_imgDst); break;
+		case 'png': imagepng($_imgDst); break;
+		// default : $prefix = ""; break;
+	}
+	// imagepng($_imgDst);
+	$contents =  ob_get_contents();
+	ob_end_clean();
+	$response = array(
+		"status" => 'success',
+		// "url" => $prefix . base64_encode($contents),
+		"url" => $baseDir = dirname($_SERVER['REQUEST_URI']) . "/temp/" . $path_parts['filename'] . "_crop." . $type,
+		"width" => $_cropW,
+		"height" => $_cropH,
+		"dstImgPath" => $dstImgPath
+	);
+}
 print json_encode($response);
 ?>

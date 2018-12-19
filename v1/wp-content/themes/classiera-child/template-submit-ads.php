@@ -66,10 +66,10 @@ if(isset($_POST['postTitle'])){
 				$catError = esc_html__( 'Please enter tag', 'classiera' );
 				$hasError = true;
 			}
-			if(empty($_POST['post_price'])){
-				$catError = esc_html__( 'Please enter price', 'classiera' );
-				$hasError = true;
-			}
+			// if(empty($_POST['post_price'])){
+			// 	$catError = esc_html__( 'Please enter price', 'classiera' );
+			// 	$hasError = true;
+			// }
 			if(empty($_POST['post_phone'])){
 				$catError = esc_html__( 'Please enter phone', 'classiera' );
 				$hasError = true;
@@ -216,13 +216,13 @@ if(isset($_POST['postTitle'])){
 				//Set Post Status//
 				//Check Category//
 				$classieraMainCat = $_POST['classiera-main-cat-field'];
-				$classieraChildCat = $_POST['classiera-sub-cat-field'];
-				$classieraThirdCat = $_POST['classiera_third_cat'];
-				if(empty($classieraThirdCat)){
-					$classieraCategory = $classieraChildCat;
-				}else{
-					$classieraCategory = $classieraThirdCat;
-				}
+				// $classieraChildCat = $_POST['classiera-sub-cat-field'];
+				// $classieraThirdCat = $_POST['classiera_third_cat'];
+				// if(empty($classieraThirdCat)){
+				// 	$classieraCategory = $classieraChildCat;
+				// }else{
+				// 	$classieraCategory = $classieraThirdCat;
+				// }
 				if(empty($classieraCategory)){
 					$classieraCategory = $classieraMainCat;
 				}
@@ -233,10 +233,10 @@ if(isset($_POST['postTitle'])){
 					'post_title' => esc_attr(strip_tags($_POST['postTitle'])),			
 					'post_content' => strip_tags($_POST['postContent'], '<h1><h2><h3><strong><b><ul><ol><li><i><a><blockquote><center><embed><iframe><pre><table><tbody><tr><td><video><br>'),
 					'post-type' => 'post',
-					'post_category' => array($classieraMainCat, $classieraChildCat, $classieraThirdCat),
+					'post_category' => array($classieraMainCat/*, $classieraChildCat, $classieraThirdCat*/),
 					'tags_input'	=> explode(',', $_POST['post_tags']),
 					'tax_input' => array(
-					'location' => $_POST['post_location'],
+						// 'location' => $_POST['post_location']
 					),
 					'comment_status' => 'open',
 					'ping_status' => 'open',
@@ -246,30 +246,30 @@ if(isset($_POST['postTitle'])){
 				$post_id = wp_insert_post($post_information);
 				
 				//Setup Price//
-				$postMultiTag = $_POST['post_currency_tag'];
-				$post_price = trim($_POST['post_price']);
-				$post_old_price = trim($_POST['post_old_price']);
+				// $postMultiTag = $_POST['post_currency_tag'];
+				// $post_price = trim($_POST['post_price']);
+				// $post_old_price = trim($_POST['post_old_price']);
 				
 				/*Check If Latitude is OFF */
-				$googleLat = $_POST['latitude'];
-				if(empty($googleLat)){
-					$latitude = $classieraLatitude;
-				}else{
-					$latitude = $googleLat;
-				}
+				// $googleLat = $_POST['latitude'];
+				// if(empty($googleLat)){
+				// 	$latitude = $classieraLatitude;
+				// }else{
+				// 	$latitude = $googleLat;
+				// }
 				/*Check If longitude is OFF */
-				$googleLong = $_POST['longitude'];
-				if(empty($googleLong)){
-					$longitude = $classieraLongitude;
-				}else{
-					$longitude = $googleLong;
-				}
+				// $googleLong = $_POST['longitude'];
+				// if(empty($googleLong)){
+				// 	$longitude = $classieraLongitude;
+				// }else{
+				// 	$longitude = $googleLong;
+				// }
 				
 				$featuredIMG = $_POST['classiera_featured_img'];
-				$itemCondition = $_POST['item-condition'];		
-				$catID = $classieraMainCat.'custom_field';		
-				$custom_fields = $_POST[$catID];
-				update_post_meta($post_id, 'custom_field', $custom_fields);
+				// $itemCondition = $_POST['item-condition'];		
+				// $catID = $classieraMainCat.'custom_field';		
+				// $custom_fields = $_POST[$catID];
+				// update_post_meta($post_id, 'custom_field', $custom_fields);
 				/*If We are using CSC Plugin*/
 				
 				/*Get Country Name*/
@@ -297,17 +297,17 @@ if(isset($_POST['postTitle'])){
 				}
 				
 				
-				update_post_meta($post_id, 'post_currency_tag', $postMultiTag, $allowed);
-				update_post_meta($post_id, 'post_price', $post_price, $allowed);
-				update_post_meta($post_id, 'post_old_price', $post_old_price, $allowed);
+				// update_post_meta($post_id, 'post_currency_tag', $postMultiTag, $allowed);
+				// update_post_meta($post_id, 'post_price', $post_price, $allowed);
+				// update_post_meta($post_id, 'post_old_price', $post_old_price, $allowed);
 				
 				/*  update AdsType */
 				update_post_meta($post_id,'ads_type_selected',$_POST['ads_type_selected']);
 				/* update AdsType */
 
 				update_post_meta($post_id, 'post_perent_cat', $classieraMainCat, $allowed);
-				update_post_meta($post_id, 'post_child_cat', $classieraChildCat, $allowed);				
-				update_post_meta($post_id, 'post_inner_cat', $classieraThirdCat, $allowed);
+				// update_post_meta($post_id, 'post_child_cat', $classieraChildCat, $allowed);				
+				// update_post_meta($post_id, 'post_inner_cat', $classieraThirdCat, $allowed);
 				
 				if(isset($_POST['post_phone'])){
 					update_post_meta($post_id, 'post_phone', $_POST['post_phone'], $allowed);
@@ -475,7 +475,7 @@ if(isset($_POST['postTitle'])){
 				//Age Verified
 				update_post_meta($post_id, 'age_verified', $_POST['age_verified'], $allowed);
 
-				update_post_meta($post_id, 'classiera_ads_type', $_POST['classiera_ads_type'], $allowed);
+				// update_post_meta($post_id, 'classiera_ads_type', $_POST['classiera_ads_type'], $allowed);
 				update_post_meta($post_id, 'classiera_ads_status', $_POST['classiera_ads_status'], $allowed);
 				update_post_meta($post_id, 'classiera_ads_statustime', $_POST['classiera_ads_statustime'], $allowed);
 				if(isset($_POST['seller'])){
@@ -487,19 +487,19 @@ if(isset($_POST['postTitle'])){
 				update_post_meta($post_id, 'post_state', wp_kses($poststate, $allowed));
 				update_post_meta($post_id, 'post_city', wp_kses($postCity, $allowed));
 
-				update_post_meta($post_id, 'post_latitude', wp_kses($latitude, $allowed));
+				// update_post_meta($post_id, 'post_latitude', wp_kses($latitude, $allowed));
 
-				update_post_meta($post_id, 'post_longitude', wp_kses($longitude, $allowed));
+				// update_post_meta($post_id, 'post_longitude', wp_kses($longitude, $allowed));
 
-				update_post_meta($post_id, 'post_address', wp_kses($_POST['address'], $allowed));
+				// update_post_meta($post_id, 'post_address', wp_kses($_POST['address'], $allowed));
 				if(isset($_POST['video'])){
 					update_post_meta($post_id, 'post_video', $_POST['video'], $allowed);
 				}
 				update_post_meta($post_id, 'featured_img', $featuredIMG, $allowed);
 				
-				if(isset($_POST['item-condition'])){
-					update_post_meta($post_id, 'item-condition', $itemCondition, $allowed);
-				}
+				// if(isset($_POST['item-condition'])){
+				// 	update_post_meta($post_id, 'item-condition', $itemCondition, $allowed);
+				// }
 				update_post_meta($post_id, 'classiera_post_type', $_POST['classiera_post_type'], $allowed);
 				
 				if(isset($_POST['pay_per_post_product_id'])){
@@ -592,6 +592,52 @@ if(isset($_POST['postTitle'])){
 					}
 				}
 				//If Its posting featured image//
+				if( isset($_POST['croppedImgUrl'])){
+					$croppedImg = $_POST['croppedImgUrl'];
+					$file_name = basename($croppedImg);
+					$fileFullPath = __DIR__ . "/temp/" . $file_name;
+					$arrPath = explode("/", $fileFullPath);
+					$path = "";
+					for( $i = 0; $i < count($arrPath) - 4; $i++){
+						$path .= $arrPath[$i] . "/";
+					}
+					$path .= "uploads";
+					if( !file_exists($path)){
+						mkdir($path, 0744);
+					}
+					$path .= "/" . date("Y");
+					if( !file_exists($path)){
+						mkdir($path, 0744);
+					}
+					$month = date("m");
+					if( $month < 10){
+						$month = "0" . $month;
+					}
+					$path .= "/" . $month;
+					if( !file_exists($path)){
+						mkdir($path, 0744);
+					}
+
+					$path_parts = pathinfo($fileFullPath);
+					$type = $path_parts['extension'];
+					// $ret = copy($fileFullPath, $path . "/" . $post_id . "_cropped." . $type);
+					$ret = rename($fileFullPath, $path . "/" . $post_id . "_cropped." . $type);
+
+					// echo "Old name : " . $fileFullPath . "<br>";
+					// echo "New name : " . $path . "/" . $post_id . "_cropped." . $type . "<br>";
+					// if( $ret) echo "renamed.";
+					// else echo "false";
+					// exit();
+					
+					$imgPath = date("Y") . "/" . date("m") . "/" . $post_id . "_cropped." . $type;
+					$arrUrlPath = explode("/", $_SERVER['REQUEST_URI']);
+					$urlPath = "";
+					for( $i = 0; $i < count($arrUrlPath) - 2; $i++){
+						$urlPath .= $arrUrlPath[$i] . "/";
+					}
+					$urlPath .= "wp-content/uploads/" . date("Y") . "/" . $month . "/" . $post_id . "_cropped." . $type;
+					update_post_meta($post_id, 'croppedImg_Path', $urlPath);
+				}
 				if ( isset($_FILES['upload_attachment']) ) {
 					$count = 0;
 					$files = $_FILES['upload_attachment'];
@@ -1597,6 +1643,7 @@ get_header(); ?>
 								var r = confirm("Great! we are ready to submit form!\nAre you sure continue to submit?");
 								if (r == true) {
 									elmForm.submit();
+									return true;
 								} else {
 									return false;
 								}

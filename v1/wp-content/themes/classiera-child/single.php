@@ -275,6 +275,10 @@ $age_verified = get_post_meta($post->ID, 'age_verified', true);
 $post_currency_tag = get_post_meta($post->ID, 'post_currency_tag', true);
 $classiera_ads_type = get_post_meta($post->ID, 'classiera_ads_type', true);
 //$user_age = get_post_meta($post->ID, 'post_age', true);
+
+$croppedImg_Path = get_post_meta($post->ID, 'croppedImg_Path', true);
+// $attachmentFiles = get_attached_file($post->ID);
+// print_r($attachmentFiles);
 ?>
 
   <!-- Add your site or application content here -->
@@ -289,7 +293,9 @@ $classiera_ads_type = get_post_meta($post->ID, 'classiera_ads_type', true);
     <div class="row"><!-- Author and images row -->
       <div class="col-xs-12 col-sm-12 col-lg-3 author-container"><!-- Author Conatiner -->
         <div class="thumbnail">
-          <img src="https://via.placeholder.com/255x343" alt="Author Portrait"><!-- https://via.placeholder.com/255x343 -->
+          <img src="<?=$croppedImg_Path?>" alt="Author Portrait">
+          <!-- <img src="https://via.placeholder.com/255x343" alt="Author Portrait"> -->
+          <!-- https://via.placeholder.com/255x343 -->
           <div class="caption clearfix">
 
             <!-- Name -->
@@ -474,12 +480,18 @@ $classiera_ads_type = get_post_meta($post->ID, 'classiera_ads_type', true);
           //$count = 1;
           foreach($attachments as $att_id => $attachment){
             // $full_img_url = wp_get_attachment_url($attachment->ID);
-            $image_large = wp_get_attachment_image_url($attachment->ID, 'large');
-            $image_thumb = wp_get_attachment_image_url ( $attachment->ID, 'thumbnail' );
+            // $image_large = wp_get_attachment_image_url($attachment->ID, 'large');
+            // $image_thumb = wp_get_attachment_image_url ( $attachment->ID, 'thumbnail' );
+            $image_buff = get_attached_file($attachment->ID);
+            $arrUrls = explode("/", $image_buff);
+            $realUrl = "";
+            for($i = 4; $i < count($arrUrls); $i ++){
+              $realUrl .= "/" . $arrUrls[$i];
+            }
             ?>
           <div class="col-xs-6 col-sm-6 col-lg-3"><!-- Single Image Wrapper -->
-            <div class="thumbnail gallery-image" data-src="<?php echo esc_url($image_large); ?>">
-              <img class="img-responsive" src="<?php echo esc_url($image_thumb); ?>" alt="<?php the_title(); ?>">
+            <div class="thumbnail gallery-image" data-src="<?php echo esc_url($realUrl); ?>">
+              <img class="img-responsive" src="<?php echo esc_url($realUrl); ?>" alt="<?php the_title(); ?>">
             </div>
           </div>
           <?php
