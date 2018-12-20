@@ -64,6 +64,7 @@
 		$classieraUserFavourite = classiera_get_template_url($templateFavourite);
 		$classieraInbox = classiera_get_template_url($templateMessage);
 	}
+	$userAvatarUrl = get_avatar_url($user_ID);
 ?>
 <aside id="sideBarAffix" class="affix-top">
 	<?php if(!in_array( 'buyer', (array) $current_user->roles )): ?>
@@ -97,7 +98,7 @@
 		  <div class="panel-body">
 		    <div class="media">
 		    	<div class="media-center">
-		    		<img class="media-object" src="<?php echo esc_url( $classieraAuthorIMG ); ?>" alt="<?php echo esc_attr( $classieraDisplayName ); ?>">
+		    		<img class="media-object" src="<?php echo esc_url( $userAvatarUrl ); ?>" alt="<?php echo esc_attr( $classieraDisplayName ); ?>">
 		    	</div><!--media-left-->
 		    	<div class="media-body author-details">
 		    		<p><?php esc_html_e('Member Since', 'classiera') ?></p>
