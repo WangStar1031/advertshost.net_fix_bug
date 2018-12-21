@@ -488,10 +488,15 @@ $croppedImg_Path = get_post_meta($post->ID, 'croppedImg_Path', true);
             for($i = 4; $i < count($arrUrls); $i ++){
               $realUrl .= "/" . $arrUrls[$i];
             }
+
+            $path_parts = pathinfo($realUrl);
+            $type = $path_parts['extension'];
+            $count = strlen($type) + 1;
+            $squaredImgUrl = substr( $realUrl, 0, strlen($realUrl) - $count) . "-150x150." . $type;
             ?>
           <div class="col-xs-6 col-sm-6 col-lg-3"><!-- Single Image Wrapper -->
-            <div class="thumbnail gallery-image" data-src="<?php echo esc_url($realUrl); ?>">
-              <img class="img-responsive" src="<?php echo esc_url($realUrl); ?>" alt="<?php the_title(); ?>">
+            <div class="thumbnail gallery-image" data-src="<?php echo esc_url($realUrl); ?>" ext="<?=$count?>">
+              <img class="img-responsive" src="<?php echo esc_url($squaredImgUrl); ?>" alt="<?php the_title(); ?>">
             </div>
           </div>
           <?php

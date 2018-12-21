@@ -592,6 +592,47 @@ if(isset($_POST['postTitle'])){
 					}
 				}
 				//If Its posting featured image//
+				if( isset($_POST['croppedImgUrlDouble'])){
+					$croppedImg = $_POST['croppedImgUrlDouble'];
+					if( $croppedImg != ""){
+						$file_name = basename($croppedImg);
+						$fileFullPath = __DIR__ . "/temp/" . $file_name;
+						$arrPath = explode("/", $fileFullPath);
+						$path = "";
+						for( $i = 0; $i < count($arrPath) - 4; $i++){
+							$path .= $arrPath[$i] . "/";
+						}
+						$path .= "uploads";
+						if( !file_exists($path)){
+							mkdir($path, 0744);
+						}
+						$path .= "/" . date("Y");
+						if( !file_exists($path)){
+							mkdir($path, 0744);
+						}
+						$month = date("m");
+						if( $month < 10){
+							$month = "0" . $month;
+						}
+						$path .= "/" . $month;
+						if( !file_exists($path)){
+							mkdir($path, 0744);
+						}
+
+						$path_parts = pathinfo($fileFullPath);
+						$type = $path_parts['extension'];
+						$ret = rename($fileFullPath, $path . "/" . $post_id . "_cropped_double." . $type);
+						
+						$imgPath = date("Y") . "/" . date("m") . "/" . $post_id . "_cropped_double." . $type;
+						$arrUrlPath = explode("/", $_SERVER['REQUEST_URI']);
+						$urlPath = "";
+						for( $i = 0; $i < count($arrUrlPath) - 2; $i++){
+							$urlPath .= $arrUrlPath[$i] . "/";
+						}
+						$urlPath .= "wp-content/uploads/" . date("Y") . "/" . $month . "/" . $post_id . "_cropped_double." . $type;
+						update_post_meta($post_id, 'croppedImg_Path_double', $urlPath);
+					}
+				}
 				if( isset($_POST['croppedImgUrl'])){
 					$croppedImg = $_POST['croppedImgUrl'];
 					$file_name = basename($croppedImg);
@@ -620,14 +661,7 @@ if(isset($_POST['postTitle'])){
 
 					$path_parts = pathinfo($fileFullPath);
 					$type = $path_parts['extension'];
-					// $ret = copy($fileFullPath, $path . "/" . $post_id . "_cropped." . $type);
 					$ret = rename($fileFullPath, $path . "/" . $post_id . "_cropped." . $type);
-
-					// echo "Old name : " . $fileFullPath . "<br>";
-					// echo "New name : " . $path . "/" . $post_id . "_cropped." . $type . "<br>";
-					// if( $ret) echo "renamed.";
-					// else echo "false";
-					// exit();
 					
 					$imgPath = date("Y") . "/" . date("m") . "/" . $post_id . "_cropped." . $type;
 					$arrUrlPath = explode("/", $_SERVER['REQUEST_URI']);
@@ -1357,8 +1391,16 @@ get_header(); ?>
 												<div class="form-main-section media-detail">
 												  <div class="form-group">
 														<div class="col-lg-12">
-															<input type="hidden" name="croppedImgUrl" id="croppedImgUrl">
-															<div id="croppic" style="margin: 100px auto;"></div>
+															<div class="row">
+																<div class="col-sm-12 col-lg-4">
+																	<input type="hidden" name="croppedImgUrl" id="croppedImgUrl">
+																	<div id="croppic" style="margin: 0 auto"></div>
+																</div>
+																<div class="col-sm-12 col-lg-8">
+																	<input type="hidden" name="croppedImgUrlDouble" id="croppedImgUrlDouble">
+																	<div id="croppic-double" style="margin: 0 auto"></div>
+																</div>
+															</div>
 														</div>
 													  <div class="col-sm-12">
 														  <div class="classiera-dropzone-heading">
@@ -1734,13 +1776,22 @@ get_header(); ?>
 		var elmForm = $("#step-" + (stepNumber*1+1));
 		// only on forward navigation, that makes easy navigation on backwards still do the validation when going next
 		if( stepNumber == 5){ // step 6
-			var arrCroppedImgs = elmForm.find(".croppedImg");
+			var arrCroppedImgs = elmForm.find("#croppic .croppedImg");
 			if( arrCroppedImgs.length == 0){
 				$("#croppic").addClass("emptyRequire");
 				return false;
 			}
 			var imgCropped = arrCroppedImgs.eq(0);
 			$("#croppedImgUrl").val(imgCropped.attr("src"));
+			if( $('#ads_type_selected').val().indexOf("standard") == -1){
+				var arrDoubleCroppedImgs = elmForm.find("#croppic-double .croppedImg");
+				if( arrDoubleCroppedImgs.length == 0){
+					$("#croppic-double").addClass("emptyRequire");
+					return false;
+				}
+				$("#croppedImgUrlDouble").val(arrDoubleCroppedImgs.eq(0).attr("src"));
+			}
+
 			var arrThumbImgInputs = $("input.classiera-input-file.imgInp");
 			var isUploaded = false;
 			for( var i = 0; i < arrThumbImgInputs.length; i++){
@@ -1769,8 +1820,6 @@ get_header(); ?>
 
 	jQuery(document).ready(function(){
 		  var cropperOptions = {
-// 		  		uploadUrl:'http://localhost:8888/ahv1/wp-content/themes/classiera-child/img-process.php',
-// 		  		cropUrl:'http://localhost:8888/ahv1/wp-content/themes/classiera-child/img-process.php',
 				uploadUrl:'/ahv/v1/wp-content/themes/classiera-child/img-process.php',
 		  		cropUrl:'/ahv/v1/wp-content/themes/classiera-child/img-crop.php',
 		  		outputUrlId: 'get_img_url',
@@ -1782,6 +1831,20 @@ get_header(); ?>
 				processInline:false,
 			}
 			var cropperHeader = new Croppic('croppic', cropperOptions);
+		
+			var cropperOptionsDouble = {
+				uploadUrl:'/ahv/v1/wp-content/themes/classiera-child/img-process.php',
+		  		cropUrl:'/ahv/v1/wp-content/themes/classiera-child/img-crop-double.php',
+		  		outputUrlId: 'get_img_url',
+		  		imgEyecandy:true,
+				zoomFactor:10,
+				doubleZoomControls:false,
+				rotateFactor:10,
+				rotateControls:false,
+				processInline:false,
+			}
+			
+			var cropperHeaderDouble = new Croppic('croppic-double', cropperOptionsDouble);
 	});
 
 </script>

@@ -1,4 +1,5 @@
 jQuery('.post_adverts').click(function(){//Choose Your Advert Type
+	console.log(jQuery(this));
 	jQuery('#smartwizard').show();//Show Wizard
 	jQuery('.progress').show();//Show Progress Bar
 	//console.log(jQuery(this).attr('id'));//Display ID in the console
@@ -8,7 +9,11 @@ jQuery('.post_adverts').click(function(){//Choose Your Advert Type
 	jQuery('.double_top').hide();//Hide Adverts Types
 	jQuery('.standard_top').hide();//Hide Adverts Types
 	var adsPrice = jQuery(this).attr('id');//Set Variable adsPrice
-	console.log(adsPrice + 'advert price')
+	console.log(adsPrice + 'advert price');
+	if( adsPrice.indexOf("standard") != -1){
+		jQuery("#croppic").parent().removeClass("col-lg-4").addClass("col-lg-12");
+		jQuery("#croppic-double").parent().hide();
+	}
 	var currentPrice = jQuery('#'+adsPrice+'-ads_cost_change-0').val();
 	console.log(currentPrice + 'some price');
 	jQuery('#ads_type_selected').val(adsPrice);

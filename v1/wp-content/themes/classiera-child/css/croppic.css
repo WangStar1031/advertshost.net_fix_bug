@@ -13,6 +13,21 @@
 				background-position: center;
 				/*box-shadow: 8px 8px 0px rgba(0,0,0,0.1);*/
 			}
+			#croppic-double{
+				width: 510px;  /* MANDATORY */
+				height: 343px; /* MANDATORY */
+				position: relative;  /* MANDATORY */
+				
+				margin: 50px 70px 20px;
+				border: 1px  solid #ddd;
+				box-sizing: content-box;
+				-moz-box-sizing: content-box;
+				border-radius: 2px;
+				background-image: url(../img/placeholder.png);
+				background-repeat: no-repeat;
+				background-position: center;
+				/*box-shadow: 8px 8px 0px rgba(0,0,0,0.1);*/
+			}
 			
 			/* DO NOT CHANGE FROM HERE ( unless u know what u are doing) */
 			.cropImgWrapper{

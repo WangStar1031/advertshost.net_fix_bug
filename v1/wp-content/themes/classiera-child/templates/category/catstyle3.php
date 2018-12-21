@@ -11,7 +11,7 @@
 	$classieraIconsStyle = $redux_demo['classiera_cat_icon_img'];
 	$classieraPostCount = $redux_demo['classiera_cat_post_counter'];
 ?>
-<section class="section-pad category-v3 border-bottom">
+<section class="section-pad category-v3">
 	<!-- <div class="section-heading-v1">
         <div class="container">
             <div class="row">
@@ -61,8 +61,8 @@
 				$classieraTotalPosts = $allPosts + $cat;
 				$category_icon = stripslashes($classieraCatIconCode);
 				?>
-			<div class="col-lg-2 col-sm-6">
-				<div class="category-box border-bottom match-height">
+			<div class="col-lg-2 col-sm-12">
+				<div class="category-box match-height">
 					<div class="category-content">
 						<!-- <span class="category-icon" style="border: 1px solid <?php echo esc_html($iconColor); ?>">
                             <?php 
