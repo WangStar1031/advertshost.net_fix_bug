@@ -108,6 +108,11 @@ h5.redux_heading {
     width: 18%;
 } */
 
+.standard_type_size {
+  margin-top: 50px !important;
+  margin-bottom: 100px !important;
+}
+
 .classiera-advertisement .masonry-content > .item-masonry.item-masonry-large {
     width: 33.33%;
 }
@@ -332,7 +337,8 @@ span.discount_per:before {
 
 /*Post Ad Styles*/
 
-#smartwizard .form-group #croppic {
+#smartwizard .form-group #croppic,
+#smartwizard .form-group #croppic-double{
   -webkit-transition: none !important;
   transition: none !important;
 }
@@ -403,7 +409,8 @@ span.discount_per:before {
   margin-bottom: 5%;
   text-transform: uppercase; }
 
-#smartwizard #croppic_imgUploadField {
+#smartwizard #croppic_imgUploadField,
+#smartwizard #croppic-double_imgUploadField {
   margin: 0;
   padding: 0;
   height: 0;

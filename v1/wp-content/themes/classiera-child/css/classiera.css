@@ -5530,7 +5530,7 @@ footer ul.category > li > a > i{
         padding-bottom: 20px;
         margin-bottom: 20px; }
         .user-pages .user-detail-section .user-ads .media .media-object {
-          height: 100px;
+          height: auto;
           width: 100px;
           object-fit: cover;
           -o-object-fit: cover; }

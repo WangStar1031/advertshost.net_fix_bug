@@ -13,15 +13,24 @@
  * @subpackage classiera
  * @since classiera 1.0
  */
-get_header(); 
-$args = array(
-    'post_type' => 'product',
-    'post_status' => 'publish',
-    'posts_per_page' => -1
-);
 
-$wp_query = new WP_Query($args);
-$redux_demo=get_option('redux_demo');
+if ( !is_user_logged_in() ) { 
+    global $redux_demo;
+    $login = $redux_demo['login'];
+    wp_redirect( $login ); exit;
+}
+
+global $redux_demo; 
+$edit = $redux_demo['edit'];
+$pagepermalink = get_permalink($post->ID);
+
+global $current_user, $user_id;
+$current_user = wp_get_current_user();
+$user_info = get_userdata($user_ID);
+$user_id = $current_user->ID; 
+get_header(); 
+
+
 global $woocommerce;
 if(WC()->cart->cart_contents_count == 0)
 {

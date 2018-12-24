@@ -491,7 +491,7 @@ $current_page_id = $page->ID;?>
 								<div class="form-main-section post-detail">							
 									<h4 class="text-uppercase border-bottom"><?php esc_html_e('Ad Details', 'classiera') ?> :</h4>							
 									<?php if($classiera_ads_typeOn == 1){?>							
-										<?php 								
+										<?php
 										$adsTypeShow = $redux_demo['classiera_ads_type_show'];								
 										$classieraShowSell = $adsTypeShow[1];								
 										$classieraShowBuy = $adsTypeShow[2];								
@@ -503,10 +503,10 @@ $current_page_id = $page->ID;?>
 										$classieraShowServices = $adsTypeShow[8];							
 										?>							
 										<div class="form-group">                                
-											<label class="col-sm-3 text-left flip"><?php esc_html_e('Type of Ad', 'classiera') ?> : <span>*</span></label>                                
-											<div class="col-sm-9">                                    
-												<div class="radio">										
-													<?php if($classieraShowSell == 1){ ?>	                                        
+											<label class="col-sm-3 text-left flip"><?php esc_html_e('Type of Ad', 'classiera') ?> : <span>*</span></label>
+											<div class="col-sm-9">
+												<div class="radio">
+													<?php if($classieraShowSell == 1){ ?>
 														<input id="sell" type="radio" value="sell" name="classiera_ads_type" <?php if($classiera_ads_type == 'sell'){echo "checked";}?>>                                        <label for="sell"><?php esc_html_e('I want to sell', 'classiera') ?></label>									<?php } ?>									
 														<?php if($classieraShowBuy == 1){ ?>                                        
 															<input id="buy" type="radio" value="buy" name="classiera_ads_type" <?php if($classiera_ads_type == 'buy'){echo "checked";}?>>                                        
@@ -526,7 +526,8 @@ $current_page_id = $page->ID;?>
 																		<?php if($classieraShowEvent == 1){ ?>										
 																			<input type="radio" name="classiera_ads_type" value="event" id="event" <?php if($classiera_ads_type == 'event'){echo "checked";}?>>										
 																			<label for="event"><?php esc_html_e('I am an event', 'classiera') ?></label>									<?php } ?>									
-																			<!--Event-->									<!--Professional service-->									
+																			<!--Event-->
+																			<!--Professional service-->									
 																			<?php if($classieraShowServices == 1){ ?>										
 																				<input type="radio" name="classiera_ads_type" value="service" id="service" <?php if($classiera_ads_type == 'service'){echo "checked";}?>>										
 																				<label for="service">											<?php esc_html_e('Professional service', 'classiera') ?>										
@@ -537,14 +538,13 @@ $current_page_id = $page->ID;?>
 																		</div><!--Type of Ad-->							
 																		<?php } ?>							
 																		<div class="form-group">                                
-																			<label class="col-sm-3 text-left flip" for="title"><?php esc_html_e('Ad title', 'classiera') ?> : <span>*</span></label>                                
+																			<label class="col-sm-3 text-left flip" for="title"><?php esc_html_e('Your Nickname', 'classiera') ?> : <span>*</span></label>
 																			<div class="col-sm-9">                                    
-																				<input id="title" data-minlength="5" name="postTitle" type="text" class="form-control form-control-md" value="<?php echo esc_html($title); ?>" placeholder="<?php esc_html_e('Ad Title Goes here', 'classiera') ?>" required>                                   
-																				<div class="help-block"><?php esc_html_e('type minimum 5 characters', 'classiera') ?></div>									
-																				<?php 										
-																				$post_id = $_GET['post'];										
-																				$author = get_post_field ('post_author', $post_id);										
-																				$postStatus = get_post_status($post_id);									?>									
+																				<input id="title" data-minlength="5" name="postTitle" type="text" class="form-control form-control-md" value="<?php echo esc_html($title); ?>" placeholder="<?php esc_html_e('Ad Title Goes here', 'classiera') ?>" required>
+																				<?php
+																				$post_id = $_GET['post'];
+																				$author = get_post_field ('post_author', $post_id);
+																				$postStatus = get_post_status($post_id);?>
 																				<input type="hidden" id="postAuthor"  name="postAuthor" value="<?php echo esc_attr($author); ?>">									
 																				<input type="hidden" id="postAuthor"  name="post_status" value="<?php echo esc_attr($postStatus); ?>">                                </div>                            
 																			</div><!--Ad title-->							

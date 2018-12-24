@@ -127,10 +127,12 @@ get_header();
 								<div class="media border-bottom">
 									<div class="media-left">
 										<?php 
-										if ( has_post_thumbnail()){								
+										if ( has_post_thumbnail()){
+										$imgURL = get_post_meta($post->ID, "croppedImg_Path");
+										$imgCropped = $imgURL[0];
 										$imgURL = get_the_post_thumbnail_url();
 										?>
-		                                <img class="media-object" src="<?php echo esc_url( $imgURL ); ?>" alt="<?php echo esc_attr( $title ); ?>">
+		                                <img style="height: auto;" class="media-object" src="<?php echo esc_url( $imgCropped ); ?>" alt="<?php echo esc_attr( $title ); ?>">
 										<?php } ?>
 		                            </div><!--media-left-->
 									<div class="media-body">
