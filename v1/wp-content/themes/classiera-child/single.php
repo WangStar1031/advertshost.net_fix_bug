@@ -311,7 +311,7 @@ $croppedImg_Path = get_post_meta($post->ID, 'croppedImg_Path', true);
 	            	    if ($meta == '1') { ?>
 	            	        <span class="glyphicon glyphicon-ok pull-right verified age-icon" data-toggle="tooltip" data-placement="top" title="Age Verified" style="margin-left: 5px"></span>
 	            	    <?php } else { ?>
-	            	        <span class="glyphicon glyphicon-remove pull-right not-verified age-icon" data-toggle="tooltip" data-placement="top" title="Age Verified" style="margin-left: 5px"></span>
+	            	        <span class="glyphicon glyphicon-remove pull-right not-verified age-icon" data-toggle="tooltip" data-placement="top" title="Age Not Verified" style="margin-left: 5px"></span>
 	            	    <?php }
 	            	 ?>
 	              <span class="pull-right"><?php echo esc_html($user_age); ?></span>

@@ -43,14 +43,14 @@ if ($user_ID){
 		$user_phone = esc_sql($_POST['phone']);
 		
 		$user_phone2 = esc_sql($_POST['phone2']);
-		$facebook = esc_sql($_POST['facebook']);
-		$twitter = esc_sql($_POST['twitter']);
-		$googleplus = esc_sql($_POST['google-plus']);
-		$linkedin = esc_sql($_POST['linkedin']);
-		$pinterest = esc_sql($_POST['pinterest']);
-		$instagram = esc_sql($_POST['instagram']);
-		$youtube = esc_sql($_POST['youtube']);
-		$vimeo = esc_sql($_POST['vimeo']);
+		//$facebook = esc_sql($_POST['facebook']);
+		//$twitter = esc_sql($_POST['twitter']);
+		//$googleplus = esc_sql($_POST['google-plus']);
+		//$linkedin = esc_sql($_POST['linkedin']);
+		//$pinterest = esc_sql($_POST['pinterest']);
+		//$instagram = esc_sql($_POST['instagram']);
+		//$youtube = esc_sql($_POST['youtube']);
+		//$vimeo = esc_sql($_POST['vimeo']);
 		
 		$country = esc_sql($_POST['country']);
 		$state = esc_sql($_POST['state']);
@@ -75,14 +75,14 @@ if ($user_ID){
 		update_user_meta( $user_ID, 'phone', $user_phone );
 		update_user_meta( $user_ID, 'phone2', $user_phone2 );
 		
-		update_user_meta( $user_ID, 'facebook', $facebook );
-		update_user_meta( $user_ID, 'twitter', $twitter );
-		update_user_meta( $user_ID, 'googleplus', $googleplus );
-		update_user_meta( $user_ID, 'linkedin', $linkedin );
-		update_user_meta( $user_ID, 'pinterest', $pinterest );
-		update_user_meta( $user_ID, 'instagram', $instagram );
-		update_user_meta( $user_ID, 'youtube', $youtube );
-		update_user_meta( $user_ID, 'vimeo', $vimeo );
+		//update_user_meta( $user_ID, 'facebook', $facebook );
+		//update_user_meta( $user_ID, 'twitter', $twitter );
+		//update_user_meta( $user_ID, 'googleplus', $googleplus );
+		//update_user_meta( $user_ID, 'linkedin', $linkedin );
+		//update_user_meta( $user_ID, 'pinterest', $pinterest );
+		//update_user_meta( $user_ID, 'instagram', $instagram );
+		//update_user_meta( $user_ID, 'youtube', $youtube );
+		//update_user_meta( $user_ID, 'vimeo', $vimeo );
 
 		update_user_meta( $user_ID, 'country', $country );
 		update_user_meta( $user_ID, 'state', $state );

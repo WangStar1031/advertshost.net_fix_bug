@@ -28,8 +28,18 @@ global $current_user, $user_id;
 $current_user = wp_get_current_user();
 $user_info = get_userdata($user_ID);
 $user_id = $current_user->ID; 
-get_header(); 
+get_header();
 
+//I added this code
+$args = array(
+    'post_type' => 'product',
+    'post_status' => 'publish',
+    'posts_per_page' => -1
+);
+
+$wp_query = new WP_Query($args);
+$redux_demo = get_option('redux_demo');
+//I added this code
 
 global $woocommerce;
 if(WC()->cart->cart_contents_count == 0)

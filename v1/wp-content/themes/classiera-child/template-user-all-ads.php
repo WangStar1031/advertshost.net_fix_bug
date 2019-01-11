@@ -87,6 +87,7 @@ get_header();
 							// print_r($redux_demo);
 							// echo '</pre>';
 							?>
+
 							<div class="user-ads user-my-ads">
 								<!-- <h5 class="redux_heading">Get Credits</h5>
 								<p class="redux_body"></p> -->
@@ -116,381 +117,369 @@ get_header();
 									$productID = get_post_meta($post->ID, 'pay_per_post_product_id', true);
 									$days_to_expire = get_post_meta($post->ID, 'days_to_expire', true);
 									$classiera_ads_type = get_post_meta($post->ID, 'classiera_ads_type', true);
-								$classiera_ads_status = get_post_meta($post->ID, 'classiera_ads_status', true);
-								$classiera_ads_statustime = get_post_meta($post->ID, 'classiera_ads_statustime', true);
-								$current_time = date("Y-m-d H:i:s");
-								if($current_time >= $classiera_ads_statustime)
-								{
-									update_post_meta($post->ID, 'classiera_ads_status','1');
+									$classiera_ads_status = get_post_meta($post->ID, 'classiera_ads_status', true);
+									$classiera_ads_statustime = get_post_meta($post->ID, 'classiera_ads_statustime', true);
+									$current_time = date("Y-m-d H:i:s");
+									if($current_time >= $classiera_ads_statustime) {
+										update_post_meta($post->ID, 'classiera_ads_status','1');
 									}
-									?>
-								<div class="media border-bottom">
-									<div class="media-left">
-										<?php 
-										if ( has_post_thumbnail()){
-										$imgURL = get_post_meta($post->ID, "croppedImg_Path");
-										$imgCropped = $imgURL[0];
-										$imgURL = get_the_post_thumbnail_url();
-										?>
-		                                <img style="height: auto;" class="media-object" src="<?php echo esc_url( $imgCropped ); ?>" alt="<?php echo esc_attr( $title ); ?>">
-										<?php } ?>
-		                            </div><!--media-left-->
-									<div class="media-body">
-										<h5 class="media-heading">
-											<a href="<?php echo esc_url( get_permalink($post->ID) ); ?>">
-												<?php echo esc_attr( $title ); ?>
-											</a>
-										</h5>
-										
-										<?php
-										if($classiera_ads_status==0){ ?>
-										<h5 class="media-heading tmerh">
-										
-											<script>
+								?>
 
-												initializeClock("timer<?= $post->ID?>","<?= $classiera_ads_statustime?> GMT+1");
+								<div class="panel panel-default">
+									<div class="panel-heading no-bg">
+
+										<div class="row">
+											<div class="col-xs-6 col-lg-6">
+												<h5 class="panel-title text-uppercase">
+													<a href="<?php echo esc_url( get_permalink($post->ID) ); ?>">
+														<?php echo esc_attr( $title ); ?>
+													</a>
+												</h5>
+											</div>
+											<div class="col-lg-6">
+												<?php
+												if($classiera_ads_status == 0){ ?>
+												<h5 class="media-heading tmerh">
+													<script>
+
+														initializeClock("timer<?= $post->ID?>","<?= $classiera_ads_statustime?> GMT+1");
 
 
-												function initializeClock(cls,endtime){
+														function initializeClock(cls,endtime){
 
-												  var timeinterval = setInterval(function(){
-													var t = getTimeRemaining(endtime);
+														  var timeinterval = setInterval(function(){
+															var t = getTimeRemaining(endtime);
 
-												$('.'+cls).html( t.hours + ':' + t.minutes + ':' +t.seconds);
+														$('.'+cls).html( t.hours + ':' + t.minutes + ':' +t.seconds);
 
 
-												   if(t.total<=0){
-													  clearInterval(timeinterval);
-													  var ajaxurl = "<?php echo admin_url('admin-ajax.php'); ?>";
-													  $.ajax({
-													  	type: 'POST',
-									                    url: ajaxurl,
-									                    data: {
-									                        'action' : 're_activate_ads',
-									                        'post_id': "<?php echo $post->ID;?>",
-									                    },
-									                    success: function (responce) {
-									                       location.reload();
+														   if(t.total<=0){
+															  clearInterval(timeinterval);
+															  var ajaxurl = "<?php echo admin_url('admin-ajax.php'); ?>";
+															  $.ajax({
+															  	type: 'POST',
+											                    url: ajaxurl,
+											                    data: {
+											                        'action' : 're_activate_ads',
+											                        'post_id': "<?php echo $post->ID;?>",
+											                    },
+											                    success: function (responce) {
+											                       location.reload();
 
-									                    },
-									                    error: function (errorThrown) {
+											                    },
+											                    error: function (errorThrown) {
 
-									                    }
+											                    }
 
-													  })
-													}
-												  },1000);
+															  })
+															}
+														  },1000);
+														}
+
+														function getTimeRemaining(endtime){
+														  var t = Date.parse(endtime) - Date.parse(new Date());
+														  var seconds = Math.floor( (t/1000) % 60 );
+														  var minutes = Math.floor( (t/1000/60) % 60 );
+														  var hours = Math.floor( (t/(1000*60*60)) % 24 );
+														  var days = Math.floor( t/(1000*60*60*24) );
+														  var sec = ("0" + seconds).slice(-2);
+														  var mintue = ("0" + minutes).slice(-2);
+														  var hour = ("0" + hours).slice(-2);
+
+														  return {
+															'total': t,
+															'days': days,
+															'hours': hour,
+															'minutes': mintue,
+															'seconds': sec
+														  };
+														}
+													</script>
+												</h5>
+												<?php 
 												}
-
-												function getTimeRemaining(endtime){
-												  var t = Date.parse(endtime) - Date.parse(new Date());
-												  var seconds = Math.floor( (t/1000) % 60 );
-												  var minutes = Math.floor( (t/1000/60) % 60 );
-												  var hours = Math.floor( (t/(1000*60*60)) % 24 );
-												  var days = Math.floor( t/(1000*60*60*24) );
-												  var sec = ("0" + seconds).slice(-2);
-												  var mintue = ("0" + minutes).slice(-2);
-												  var hour = ("0" + hours).slice(-2);
-
-												  return {
-													'total': t,
-													'days': days,
-													'hours': hour,
-													'minutes': mintue,
-													'seconds': sec
-												  };
-												}
-
-
-											</script>
-
-										</h5>
-										<?php 
-										}
-										// print_r($current_time);
-										// print_r($days_to_expire);
-										 if($classiera_ads_status==1 && $current_time <= $days_to_expire && $postStatus=='publish'):
-										?>
-										<div class="displayTimer">
-											<?php
-												//print_r($days_to_expire);
+												// print_r($current_time);
+												// print_r($days_to_expire);
+												 if($classiera_ads_status==1 && $current_time <= $days_to_expire && $postStatus=='publish'):
 												?>
-											<label>Display Time</label>
-											<h5 class="media-heading tmerhm" id="tmerhm<?= $post->ID?>">
-												
-												<script>
+												<?php
+													//print_r($days_to_expire);
+												?>
+												<span class="media-heading tmerhm pull-right" id="tmerhm<?= $post->ID?>">
+													
+													<script>
 
-												initializeClocks("tmerhm<?= $post->ID?>","<?= $days_to_expire?> GMT");
-
-
-												function initializeClocks(cls,endtime){
-
-												  var timeinterval = setInterval(function(){
-													var t = getTimeRemainings(endtime);
-													//console.log(endtime);
-													//console.log(t);
-													$('#'+cls).html(t.days+' Days '+ t.hours + ':' + t.minutes + ':' +t.seconds);
+													initializeClocks("tmerhm<?= $post->ID?>","<?= $days_to_expire?> GMT");
 
 
-												   if(t.total<=0){
-													  clearInterval(timeinterval);
+													function initializeClocks(cls,endtime){
+
+													  var timeinterval = setInterval(function(){
+														var t = getTimeRemainings(endtime);
+														//console.log(endtime);
+														//console.log(t);
+														$('#'+cls).html(t.days+' Days '+ t.hours + ':' + t.minutes + ':' +t.seconds);
+
+
+													   if(t.total<=0){
+														  clearInterval(timeinterval);
+														}
+													  },1000);
 													}
-												  },1000);
-												}
 
-												function getTimeRemainings(endtime){
-												  var t = Date.parse(endtime) - Date.parse(new Date());
-												//  console.log(t);
-												  var seconds = Math.floor( (t/1000) % 60 );
-												  var minutes = Math.floor( (t/1000/60) % 60 );
-												  var hours = Math.floor( (t/(1000*60*60)) % 24 );
-												  var days = Math.floor( t/(1000*60*60*24) );
-												  var sec = ("0" + seconds).slice(-2);
-												  var mintue = ("0" + minutes).slice(-2);
-												  var hour = ("0" + hours).slice(-2);
-												  var d = ("0" + days).slice(-2);
+													function getTimeRemainings(endtime){
+													  var t = Date.parse(endtime) - Date.parse(new Date());
+													//  console.log(t);
+													  var seconds = Math.floor( (t/1000) % 60 );
+													  var minutes = Math.floor( (t/1000/60) % 60 );
+													  var hours = Math.floor( (t/(1000*60*60)) % 24 );
+													  var days = Math.floor( t/(1000*60*60*24) );
+													  var sec = ("0" + seconds).slice(-2);
+													  var mintue = ("0" + minutes).slice(-2);
+													  var hour = ("0" + hours).slice(-2);
+													  var d = ("0" + days).slice(-2);
 
-												  return {
-													'total': t,
-													'days': d,
-													'hours': hour,
-													'minutes': mintue,
-													'seconds': sec
-												  };
-												}
+													  return {
+														'total': t,
+														'days': d,
+														'hours': hour,
+														'minutes': mintue,
+														'seconds': sec
+													  };
+													}
 
 
-												</script>
-											</h5>
-										</div>
-										<?php endif;?>
-										<p>
-		                                    <span class="published">
-		                                        <i class="fa fa-check-circle"></i>
-		                                        <?php classieraPStatusTrns($classieraPstatus); ?>
-		                                    </span>
-		                                    <span>
-		                                        <i class="fa fa-eye"></i>
-		                                        <?php echo classiera_get_post_views($post->ID); ?>
-		                                    </span>
-		                                    <span>
-		                                        <i class="fa fa-clock"></i>                                      
-												<?php echo esc_html( $postDate ); ?>
-		                                    </span>
-											<span>
-												<i class="removeMargin fa fa-hashtag"></i>
-												<?php esc_html_e( 'ID', 'classiera' ); ?> : 
-												<?php echo esc_attr( $post->ID ); ?>
-		                                    </span>
-		                                </p>
-										
-										<!-- Print variable information -->
-										<!-- <pre><?php //print_r ($$bumpProductID); ?></pre> -->
-										
-										
-										<?php if($classiera_ads_status==0){ ?>
-										<span><?php esc_html_e("Your advert has been paused and will re-activate after: ", 'classiera') ?></span>
-										<span class="timer<?=$post->ID ?>"></span>
-										<?php  } else{ ?>
-										<!-- <p>Pausing the ad will stop it for 24 hours.</p> -->
-										<?php } ?>
-									</div><!--media-body-->
-									<div class="classiera_posts_btns">
-										<!--PayPerPostbtn-->
-										<?php if(!empty($productID) && $postStatus == 'pending'){?>
-										<div class="classiera_main_cart">
-											<a href="#" class="btn btn-primary classiera_ppp_btn" data-quantity="1" data-product_id="<?php echo esc_attr( $productID ); ?>" data-product_sku="">
-												<?php esc_html_e( 'Pay to Publish', 'classiera' ); ?>
-											</a>
-											<form method="post" class="classiera_ppp_ajax">				
-												<input type="hidden" class="product_id" name="product_id" value="<?php echo esc_attr( $productID ); ?>">
-												<input type="hidden" class="post_id" name="post_id" value="<?php echo esc_attr( $post->ID ); ?>">
-												<input type="hidden" class="post_title" name="post_title" value="<?php echo esc_html( the_title());?>">
-												<input type="hidden" class="days_to_expire" name="days_to_expire" value="<?php echo esc_attr( $days_to_expire ); ?>">
-											</form>
-											<a class="btn btn-primary classiera_ppp_cart" href="<?php echo esc_url( $classiera_cart_url );?>">
-												<?php esc_html_e( 'View Cart', 'classiera' ); ?>
-											</a>
-										</div>
-										<?php } ?>
-										<!--PayPerPostbtn-->
-										<!--BumpAds-->
-										<?php if(!empty($bumpProductID) && $postStatus == 'publish'){?>
-										<div class="classiera_bump_ad">
-											
-											<!-- <a href="javascript:void(0);" class="btn btn-primary classiera_bump_btns" onclick="bump_ads('<?php echo admin_url('admin-ajax.php');?>','<?php echo $post->ID; ?>')" data-quantity="1" data-product_id="<?php echo esc_attr( $post->ID ); ?>" data-product_sku="">
-													<?php esc_html_e( 'Bump Ad', 'classiera' ); ?>
-											</a> -->
-											
-											<a href="javascript:void(0);" class="btn btn-primary classiera_bump_btns" onclick="bump_ads('<?php echo admin_url('admin-ajax.php');?>','<?php echo $post->ID; ?>')" data-quantity="1" data-product_id="<?php echo esc_attr( $post->ID ); ?>">
-												<?php esc_html_e( 'Bump Advert', 'classiera' ); ?>
-											</a>
-											<input type="hidden" name="adstype-<?php echo $post->ID; ?>" value="<?php echo get_post_meta($post->ID,'ads_type_selected', true)?>" class="bump_ads_type" id="bump_ads_type-<?php echo $post->ID; ?>">
+													</script>
+												</span>
 
-											<!-- The Modal -->
-											<input type="hidden" name="uw_balance" value="<?php echo get_user_meta($current_user->ID,'_uw_balance', true)?>" id="uw_balance">
-											<!-- <div id="myModalBump" class="modal">
-											  <div class="modal-content">
-											    <div class="modal-header">
-											      <span class="closeBump">&times;</span>
-											      <h2>Bump Advert</h2>
-											    </div>
-											    <div class="modal-body">
-											      <p id="textbump">Are you sure you wish to bump your advert? Bumping advery will cost you <span id="bumpCredit"></span> credits.</p>
-											    </div>
-											    <div class="modal-footer">
-											      <button id="bumpOkBtn" class="post-submit btn btn-default" type="button" name="op">OK</button>
-											      <button type="button" id="cancelBtn" class="btn btn-default" data-dismiss="modal">Cancel</button>
-											    </div>
-											  </div>
-											</div> -->
+												<span class="pull-right hidden-xs" style="margin-right: 10px"><?php esc_html_e('Display Time Left', 'classiera') ?>:</span>
 
-											<div id="myModalBump" class="modal" tabindex="-1" role="dialog">
-											  <div class="modal-dialog" role="document">
-											    <div class="modal-content">
-											      <div class="modal-header">
-											        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-											        <h4 class="modal-title"><?php esc_html_e('Bump Advert', ''); ?></h4>
-											      </div>
-											      <div class="modal-body">
-											        <p id="textbump">Are you sure you wish to bump current advert? Bumping advert will cost you <span id="bumpCredit"></span> credits.</p>
-											      </div>
-											      <div class="modal-footer">
-											        <button id="bumpOkBtn" class="post-submit btn btn-default" type="button" name="op">OK</button>
-											      <button type="button" id="cancelBtn" class="btn btn-default" data-dismiss="modal">Cancel</button>
-											      </div>
-											    </div><!-- /.modal-content -->
-											  </div><!-- /.modal-dialog -->
-											</div><!-- /.modal -->
-
-		 								</div>
-										<?php } ?>
-										<!--BumpAds-->
-										<?php 
-											global $redux_demo;
-											$edit_post_page_id = $redux_demo['edit_post'];
-											if(function_exists('icl_object_id')){
-												$templateEditAd = 'template-edit-post.php';		
-												$edit_post_page_id = classiera_get_template_url($templateEditAd);
-											}
-											$postID = $post->ID;
-											global $wp_rewrite;
-											if ($wp_rewrite->permalink_structure == ''){
-												//we are using ?page_id
-												$edit_post = $edit_post_page_id."&post=".$post->ID;
-												$del_post = $pagepermalink."&delete_id=".$post->ID;
-												$soldpost = $pagepermalink."&sold_id=".$post->ID;
-												$unsold = $pagepermalink."&un_sold_id=".$post->ID;
-												$pausepost=$pagepermalink."?pause_id=".$post->ID;										
-											}else{
-												//we are using permalinks
-												$edit_post = $edit_post_page_id."?post=".$post->ID;
-												$del_post = $pagepermalink."?delete_id=".$post->ID;
-												$soldpost = $pagepermalink."?sold_id=".$post->ID;
-												$unsold = $pagepermalink."?un_sold_id=".$post->ID;
-												$pausepost=$pagepermalink."?pause_id=".$post->ID;										
-											}
-										//if(get_post_status( $post->ID ) !== 'private'){ 	
-										?>
-										<a href="<?php echo esc_url($edit_post); ?>" class="btn btn-primary"><i class="<?php echo esc_attr($iconClass); ?> far fa-edit"></i><?php esc_html_e("Edit", 'classiera') ?></a>
-										<?php //} ?>
-
-										<!-- Delete Modal -->
-										<a class="btn btn-primary" href="javascript:void(0)" data-toggle="modal" data-target="#deleteAdvert-<?php echo $post->ID;?>"><i class="<?php echo esc_attr($iconClass); ?> fa fa-trash-alt"></i><?php esc_html_e("Remove", 'classiera') ?></a>
-
-										<div class="modal fade" id="deleteAdvert-<?php echo $post->ID;?>" tabindex="-1" role="dialog" aria-labelledby="deleteAvert">
-										  <div class="modal-dialog" role="document">
-										    <div class="modal-content">
-										      <div class="modal-header">
-										        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-										        <h4 class="modal-title" id="deleteAvert-<?php echo $post->ID;?>"><?php esc_html_e("Remove Advert", 'classiera') ?></h4>
-										      </div>
-										      <div class="modal-body">
-										        <p><?php esc_html_e("Are you sure you wish to remove this advert. This action can not be reverted?", 'classiera') ?></p>
-										      </div>
-										      <div class="modal-footer">
-										      	<a href="<?php echo esc_url($del_post); ?>" type="button" class="btn btn-primary"><?php esc_html_e("Remove", 'classiera') ?></a>
-										        <a href="javascript:void(0)" type="button" class="btn btn-primary" data-dismiss="modal"><?php esc_html_e("Cancel", 'classiera') ?></a>
-										      </div>
-										    </div>
-										  </div>
-										</div>
-										<!-- Delete Modal -->
-
-										<?php if($classiera_ads_status==1 && $postStatus=='publish') {?>
-											<!-- set time pause-->
-											<a href="javascript:void(0)" class=" btn btn-primary" data-toggle="modal" data-target="#myModal">
-												<i class="<?php echo esc_attr($iconClass); ?> far fa-check-square"></i>
-													<?php esc_html_e("Pause", 'classiera');?>
-											</a>
-
-											<!-- Modal -->
-											<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-											  <div class="modal-dialog" role="document">
-											    <div class="modal-content">
-											      <div class="modal-header">
-											        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-											        <h4 class="modal-title" id="myModalLabel"><?php esc_html_e("Pause Advert", 'classiera') ?></h4>
-											      </div>
-											      <div class="modal-body">
-											      	<p><?php esc_html_e("Are you sure you wish to pause your advert for 24 hours? Your advert will automatically activate itself after 24 hours and you will not loose your advert display time.", 'classiera') ?></p>
-											      </div>
-											      <div class="modal-footer">
-											      	<a class="btn btn-primary" href="<?php echo esc_url($pausepost); ?>"><?php esc_html_e("OK", 'classiera') ?></a>
-											      	<a class="btn btn-primary" data-dismiss="modal" href="javascript:void(0)"><?php esc_html_e("Cancel", 'classiera') ?></a>
-											      	<!-- <button type="button" class="btn btn-primary">OK</button> -->
-											        <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button> -->
-											      </div>
-											    </div>
-											  </div>
+												<?php endif;?>
 											</div>
-											<!-- / Modal -->
-										<?php } ?>
-												
-										<?php if( $postStatus == 'publish'){?>
-											<a href="javascript:void(0)" class=" btn btn-primary" data-toggle="modal" data-target="#discountModal-<?php echo $post->ID;?>">
-												<i class="<?php echo esc_attr($iconClass); ?> far fa-check-square"></i>
-														<?php esc_html_e("Discount", 'classiera');?>
-											</a>
-											<!-- Modal -->
-											<div class="modal fade" id="discountModal-<?php echo $post->ID;?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-											  <div class="modal-dialog" role="document">
-											    <div class="modal-content">
-											      <div class="modal-header">
-											        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-											        <h4 class="modal-title" id="myModalLabel"><?php esc_html_e("Choose Your Discount", 'classiera') ?></h4>
-											      </div>
-											      <div class="modal-body">
-											      	<p>
-													    <input id="radio-0-<?php echo $post->ID;?>" name="radiodiscount-<?php echo $post->ID;?>" type="radio" value="0">
-													    <label  for="radio-0-<?php echo $post->ID;?>" class="radio-label"><?php esc_html_e("No Discount");?></label>
-													</p>
+										</div>
+										
+									</div>
+
+									<div class="panel-body">
+										<div class="media">
+
+											<div class="row">
+												<div class="col-lg-3 col-xs-6">
+													<?php 
+													if ( has_post_thumbnail()){
+														$imgURL = get_post_meta($post->ID, "croppedImg_Path");
+														$imgCropped = $imgURL[0];
+														$imgURL = get_the_post_thumbnail_url();
+													?>
+					                                <img style="height: auto;" class="media-object thumbnail no-margin" src="<?php echo esc_url( $imgCropped ); ?>" alt="<?php echo esc_attr( $title ); ?>">
+													<?php } ?>
+												</div>
+
+												<div class="col-lg-9 col-xs-6">
+													
+				                                    <p class="published">
+				                                        <i class="fa fa-check-circle"></i>
+				                                        <?php classieraPStatusTrns($classieraPstatus); ?>
+				                                    </p>
+				                                    <p>
+				                                        <i class="fa fa-eye"></i>
+				                                        <?php echo classiera_get_post_views($post->ID); ?>
+				                                    </p>
+				                                    <p>
+				                                        <i class="fa fa-clock"></i>                                      
+														<?php echo esc_html( $postDate ); ?>
+				                                    </p>
 													<p>
-													    <input id="radio-1-<?php echo $post->ID;?>" name="radiodiscount-<?php echo $post->ID;?>" type="radio" value="10">
-													    <label  for="radio-1-<?php echo $post->ID;?>" class="radio-label"><?php esc_html_e("10% Discount");?></label>
-													</p>
-													<p>
-													    <input id="radio-2-<?php echo $post->ID;?>" name="radiodiscount-<?php echo $post->ID;?>" type="radio" value="20">
-													    <label  for="radio-2-<?php echo $post->ID;?>" class="radio-label"><?php esc_html_e("20% Discount");?></label>
-													</p>
-													<p>
-													    <input id="radio-3-<?php echo $post->ID;?>" name="radiodiscount-<?php echo $post->ID;?>" type="radio" value="30">
-													    <label  for="radio-3-<?php echo $post->ID;?>" class="radio-label"><?php esc_html_e("30% Discount");?></label>
-													</p>
-											      </div>
-											      <div class="modal-footer">
-											      	<a class="btn btn-primary" href="javascript:void(0)" onclick="discount_ads('<?php echo admin_url('admin-ajax.php');?>','<?php echo $post->ID; ?>')"><?php esc_html_e("OK", 'classiera') ?></a>
-											      	<a class="btn btn-primary" data-dismiss="modal" href="javascript:void(0)"><?php esc_html_e("Cancel", 'classiera') ?></a>
-											      	<!-- <button type="button" class="btn btn-primary">OK</button> -->
-											        <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button> -->
-											      </div>
-											    </div>
-											  </div>
+														<i class="removeMargin fa fa-hashtag"></i>
+														<?php esc_html_e( 'ID', 'classiera' ); ?> : 
+														<?php echo esc_attr( $post->ID ); ?>
+				                                    </p>
+													
+													<!-- Print variable information -->
+													<!-- <pre><?php //print_r ($$bumpProductID); ?></pre> -->
+													
+													<?php if($classiera_ads_status == 0){ ?>
+													<span><?php esc_html_e("Your advert has been paused and will re-activate after: ", 'classiera') ?></span>
+													<span class="timer<?=$post->ID ?>"></span>
+													<?php  } else{ ?>
+													<!-- <p>Pausing the ad will stop it for 24 hours.</p> -->
+													<?php } ?>
+
+												</div>
+
+												<div class="col-lg-9 col-xs-12" style="margin-top: 10px">
+
+													<!--BumpAds-->
+													<?php if(!empty($bumpProductID) && $postStatus == 'publish'){?>
+														
+														<a href="javascript:void(0);" class="btn btn-primary classiera_bump_btns edit-ad-btn" onclick="bump_ads('<?php echo admin_url('admin-ajax.php');?>','<?php echo $post->ID; ?>')" data-quantity="1" data-product_id="<?php echo esc_attr( $post->ID ); ?>">
+															<?php esc_html_e( 'Bump', 'classiera' ); ?>
+														</a>
+														<input type="hidden" name="adstype-<?php echo $post->ID; ?>" value="<?php echo get_post_meta($post->ID,'ads_type_selected', true)?>" class="bump_ads_type" id="bump_ads_type-<?php echo $post->ID; ?>">
+
+														<!-- The Modal -->
+														<input type="hidden" name="uw_balance" value="<?php echo get_user_meta($current_user->ID,'_uw_balance', true)?>" id="uw_balance">
+
+														<div id="myModalBump" class="modal" tabindex="-1" role="dialog">
+														  <div class="modal-dialog" role="document">
+														    <div class="modal-content">
+														      <div class="modal-header">
+														        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+														        <h4 class="modal-title"><?php esc_html_e('Bump Advert', ''); ?></h4>
+														      </div>
+														      <div class="modal-body">
+														        <p id="textbump">Are you sure you wish to bump current advert? Bumping advert will cost you <span id="bumpCredit"></span> credits.</p>
+														      </div>
+														      <div class="modal-footer">
+														        <button id="bumpOkBtn" class="post-submit btn btn-default" type="button" name="op">OK</button>
+														      <button type="button" id="cancelBtn" class="btn btn-default" data-dismiss="modal">Cancel</button>
+														      </div>
+														    </div><!-- /.modal-content -->
+														  </div><!-- /.modal-dialog -->
+														</div><!-- /.modal -->
+
+													<?php } ?>
+													<!--BumpAds-->
+
+													<!-- Re-activate Advert -->
+													<?php if($postStatus == 'draft') { ?>
+														<a href="javascript:void(0);" class="btn btn-primary edit-ad-btn">
+															<?php esc_html_e( 'Re-activate', 'classiera' ); ?>
+														</a>
+													<?php } ?>
+													<!-- / Re-activate Advert -->
+
+													<?php 
+													global $redux_demo;
+													$edit_post_page_id = $redux_demo['edit_post'];
+													if(function_exists('icl_object_id')){
+														$templateEditAd = 'template-edit-post.php';		
+														$edit_post_page_id = classiera_get_template_url($templateEditAd);
+													}
+													$postID = $post->ID;
+													global $wp_rewrite;
+													if ($wp_rewrite->permalink_structure == ''){
+														//we are using ?page_id
+														$edit_post = $edit_post_page_id."&post=".$post->ID;
+														$del_post = $pagepermalink."&delete_id=".$post->ID;
+														$soldpost = $pagepermalink."&sold_id=".$post->ID;
+														$unsold = $pagepermalink."&un_sold_id=".$post->ID;
+														$pausepost=$pagepermalink."?pause_id=".$post->ID;										
+													}else{
+														//we are using permalinks
+														$edit_post = $edit_post_page_id."?post=".$post->ID;
+														$del_post = $pagepermalink."?delete_id=".$post->ID;
+														$soldpost = $pagepermalink."?sold_id=".$post->ID;
+														$unsold = $pagepermalink."?un_sold_id=".$post->ID;
+														$pausepost=$pagepermalink."?pause_id=".$post->ID;										
+													}
+													//if(get_post_status( $post->ID ) !== 'private'){ 	
+													?>
+													<a href="<?php echo esc_url($edit_post); ?>" class="btn btn-primary edit-ad-btn"><?php esc_html_e("Edit", 'classiera') ?></a><!-- <i class="<?php echo esc_attr($iconClass); ?> far fa-edit"></i> -->
+													<?php //} ?>
+
+													<!-- Delete Modal -->
+													<a class="btn btn-primary edit-ad-btn" href="javascript:void(0)" data-toggle="modal" data-target="#deleteAdvert-<?php echo $post->ID;?>"></i><?php esc_html_e("Remove", 'classiera') ?></a><!-- <i class="<?php echo esc_attr($iconClass); ?> fa fa-trash-alt"> -->
+
+													<div class="modal fade" id="deleteAdvert-<?php echo $post->ID;?>" tabindex="-1" role="dialog" aria-labelledby="deleteAvert">
+													  <div class="modal-dialog" role="document">
+													    <div class="modal-content">
+													      <div class="modal-header">
+													        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+													        <h4 class="modal-title" id="deleteAvert-<?php echo $post->ID;?>"><?php esc_html_e("Remove Advert", 'classiera') ?></h4>
+													      </div>
+													      <div class="modal-body">
+													        <p><?php esc_html_e("Are you sure you wish to remove this advert. This action can not be reverted?", 'classiera') ?></p>
+													      </div>
+													      <div class="modal-footer">
+													      	<a href="<?php echo esc_url($del_post); ?>" type="button" class="btn btn-primary"><?php esc_html_e("Remove", 'classiera') ?></a>
+													        <a href="javascript:void(0)" type="button" class="btn btn-primary" data-dismiss="modal"><?php esc_html_e("Cancel", 'classiera') ?></a>
+													      </div>
+													    </div>
+													  </div>
+													</div>
+													<!-- Delete Modal -->
+
+													<?php if($classiera_ads_status==1 && $postStatus=='publish') { ?>
+														<!-- set time pause-->
+														<a href="javascript:void(0)" class=" btn btn-primary edit-ad-btn" data-toggle="modal" data-target="#myModal">
+															<!-- <i class="<?php echo esc_attr($iconClass); ?> far fa-check-square"></i> -->
+																<?php esc_html_e("Pause", 'classiera');?>
+														</a>
+
+														<!-- Modal -->
+														<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+														  <div class="modal-dialog" role="document">
+														    <div class="modal-content">
+														      <div class="modal-header">
+														        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+														        <h4 class="modal-title" id="myModalLabel"><?php esc_html_e("Pause Advert", 'classiera') ?></h4>
+														      </div>
+														      <div class="modal-body">
+														      	<p><?php esc_html_e("Are you sure you wish to pause your advert for 24 hours? Your advert will automatically activate itself after 24 hours and you will not loose your advert display time.", 'classiera') ?></p>
+														      </div>
+														      <div class="modal-footer">
+														      	<a class="btn btn-primary" href="<?php echo esc_url($pausepost); ?>"><?php esc_html_e("OK", 'classiera') ?></a>
+														      	<a class="btn btn-primary" data-dismiss="modal" href="javascript:void(0)"><?php esc_html_e("Cancel", 'classiera') ?></a>
+														      	<!-- <button type="button" class="btn btn-primary">OK</button> -->
+														        <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button> -->
+														      </div>
+														    </div>
+														  </div>
+														</div>
+														<!-- / Modal -->
+													<?php } ?>
+
+													<?php if( $postStatus == 'publish'){?>
+														<a href="javascript:void(0)" class=" btn btn-primary edit-ad-btn" data-toggle="modal" data-target="#discountModal-<?php echo $post->ID;?>">
+															<!-- <i class="<?php echo esc_attr($iconClass); ?> far fa-check-square"></i> -->
+																	<?php esc_html_e("Discount", 'classiera');?>
+														</a>
+														<!-- Modal -->
+														<div class="modal fade" id="discountModal-<?php echo $post->ID;?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+														  <div class="modal-dialog" role="document">
+														    <div class="modal-content">
+														      <div class="modal-header">
+														        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+														        <h4 class="modal-title" id="myModalLabel"><?php esc_html_e("Choose Your Discount", 'classiera') ?></h4>
+														      </div>
+														      <div class="modal-body">
+														      	<p>
+																    <input style="margin-right: 10px" id="radio-0-<?php echo $post->ID;?>" name="radiodiscount-<?php echo $post->ID;?>" type="radio" value="0">
+																    <label  for="radio-0-<?php echo $post->ID;?>" class="radio-label"><?php esc_html_e("No Discount");?></label>
+																</p>
+																<p>
+																    <input style="margin-right: 10px" id="radio-1-<?php echo $post->ID;?>" name="radiodiscount-<?php echo $post->ID;?>" type="radio" value="10">
+																    <label  for="radio-1-<?php echo $post->ID;?>" class="radio-label"><?php esc_html_e("10% Discount");?></label>
+																</p>
+																<p>
+																    <input style="margin-right: 10px" id="radio-2-<?php echo $post->ID;?>" name="radiodiscount-<?php echo $post->ID;?>" type="radio" value="20">
+																    <label  for="radio-2-<?php echo $post->ID;?>" class="radio-label"><?php esc_html_e("20% Discount");?></label>
+																</p>
+																<p>
+																    <input style="margin-right: 10px" id="radio-3-<?php echo $post->ID;?>" name="radiodiscount-<?php echo $post->ID;?>" type="radio" value="30">
+																    <label  for="radio-3-<?php echo $post->ID;?>" class="radio-label"><?php esc_html_e("30% Discount");?></label>
+																</p>
+														      </div>
+														      <div class="modal-footer">
+														      	<a class="btn btn-primary" href="javascript:void(0)" onclick="discount_ads('<?php echo admin_url('admin-ajax.php');?>','<?php echo $post->ID; ?>')"><?php esc_html_e("OK", 'classiera') ?></a>
+														      	<a class="btn btn-primary" data-dismiss="modal" href="javascript:void(0)"><?php esc_html_e("Cancel", 'classiera') ?></a>
+														      	<!-- <button type="button" class="btn btn-primary">OK</button> -->
+														        <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button> -->
+														      </div>
+														    </div>
+														  </div>
+														</div>
+														<!-- / Modal -->
+													<?php } ?>	
+
+												</div>
 											</div>
-											<!-- / Modal -->
-										<?php } ?>		
-									</div><!--classiera_posts_btns-->
-								</div><!--media border-bottom-->
+
+										</div><!--media border-bottom-->
+									</div>
+								</div>
+
 								<?php endwhile; ?>
 								<?php									
 								  if(function_exists('classiera_pagination')){
